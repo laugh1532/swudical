@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Records_Vali_1_Activity">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="354dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/nanumbarunb"
+        android:text="선택하신 '2019.09.08. 슈디컬병원'에서 발급된 진료 확인서를 출력합니다."
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="352dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/jalnan"
+        android:text="진료기록 확인하기"
+        android:textColor="@color/mainBlack"
+        android:textSize="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="348dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/jalnan"
+        android:text="김슈니님의 진료실"
+        android:textColor="@color/mainPurple"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="401dp"
+        android:layout_height="569dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/recordsdocx" />
+</androidx.constraintlayout.widget.ConstraintLayout>
