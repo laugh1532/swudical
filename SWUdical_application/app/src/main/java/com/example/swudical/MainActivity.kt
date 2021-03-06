@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
 
     //facebook auth
     private var callbackManager: CallbackManager? = null
-
-
     //firebase Auth
     private lateinit var firebaseAuth: FirebaseAuth
     //google client
@@ -65,12 +63,9 @@ class MainActivity : AppCompatActivity() {
     // onStart. 유저가 앱에 이미 구글 로그인을 했는지 확인
     public override fun onStart() {
         super.onStart()
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-        if(account!=null){
-            if(firebaseAuth.currentUser !=null) {
-                startActivity(Intent(this, UserInfoActivity::class.java))
-                finish()
-            }
+        if(firebaseAuth.currentUser !=null) {
+            startActivity(Intent(this, UserInfoActivity::class.java))
+            finish()
         }
     } //onStart End
 

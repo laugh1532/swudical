@@ -18,6 +18,7 @@
         app:layout_constraintVertical_bias="0.217"
         app:srcCompat="@drawable/swudical_logo" />
 
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_sign_btn"
         android:layout_width="289dp"
@@ -25,18 +26,22 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.368"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468" />
-
+        app:layout_constraintVertical_bias="0.472" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
-        android:layout_width="279dp"
-        android:layout_height="80dp"
+        android:layout_width="285dp"
+        android:layout_height="23dp"
         android:layout_gravity="center_horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="398dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.561"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
