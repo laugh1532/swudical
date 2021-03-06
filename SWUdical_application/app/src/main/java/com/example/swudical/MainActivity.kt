@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // 페이스북 로그인 버튼 설정
-        var facebookButton = findViewById<Button>(R.id.login_button)
+        // var -> val로 수정함 0306 20:48
+        val facebookButton = findViewById<Button>(R.id.login_button)
         facebookButton.setOnClickListener { facebookLogin() }
         callbackManager = CallbackManager.Factory.create()
 
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         val account = GoogleSignIn.getLastSignedInAccount(this)
         if(account!=null){
             if(firebaseAuth.currentUser !=null) {
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, UserInfoActivity::class.java))
                 finish()
             }
         }
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
+                Log.w("로그인", "성공", task.exception)
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
@@ -102,7 +104,7 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
                 if(firebaseAuth.currentUser !=null) {
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    startActivity(Intent(this, UserInfoActivity::class.java))
                     finish()
                 }
             } else {
@@ -134,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d(TAG, "로그인 성공")
                     val user = firebaseAuth!!.currentUser
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    startActivity(Intent(this, UserInfoActivity::class.java))
                     finish()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
