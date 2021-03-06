@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
+    <!--xml 파일 수정 필요함-->
 
     <LinearLayout
         android:id="@+id/linearLayout2"
