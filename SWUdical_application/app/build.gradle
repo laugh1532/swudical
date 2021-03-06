@@ -27,6 +27,37 @@ android {
     aaptOptions {
         noCompress "tflite"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    repositories {
+        jcenter()
+    }
+
+    applicationVariants.all {
+        variant -> variant.getRuntimeConfiguration().exclude group: 'com.google.code.findbugs', module: 'jsr305'
+            variant.getRuntimeConfiguration().exclude group: 'com.google.code.findbugs', module: 'annotations'
+            variant.getRuntimeConfiguration().exclude group: 'com.google.guava', module: 'guava'
+    }
+
+    packagingOptions{
+        exclude 'google/protobuf/empty.proto'
+        exclude 'google/protobuf/field_mask.proto'
+        exclude 'google/protobuf/type.proto'
+        exclude 'google/protobuf/timestamp.proto'
+        exclude 'google/protobuf/struct.proto'
+        exclude 'google/protobuf/source_context.proto'
+        exclude 'google/protobuf/any.proto'
+        exclude 'google/protobuf/wrappers.proto'
+        exclude 'google/protobuf/duration.proto'
+        exclude 'google/protobuf/api.proto'
+    }
 }
 
 dependencies {
@@ -35,24 +66,55 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
-    implementation 'com.google.firebase:firebase-firestore:22.0.1'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'com.google.firebase:firebase-auth:20.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'org.tensorflow:tensorflow-lite:+'
-    implementation platform('com.google.firebase:firebase-bom:26.3.0')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
 
-    // 구글 로그인 시작
-    implementation platform('com.google.firebase:firebase-bom:26.2.0')
-    implementation 'com.google.firebase:firebase-auth'
+    //텐서플로우
+    implementation 'org.tensorflow:tensorflow-lite:+'
+
+    // 구글
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+    implementation 'com.google.firebase:firebase-auth:20.0.2'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-firestore:22.0.1'
     implementation 'com.google.firebase:firebase-database:16.0.5'
+    implementation 'com.google.firebase:firebase-storage:19.2.1'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    //implementation 'com.google.firebase:firebase-auth'
 
     // 페이스북 로그인
     implementation 'com.facebook.android:facebook-android-sdk:4.39.0'
     implementation 'com.facebook.android:facebook-login:[8.1)'
+
+    //region Nd4j
+    implementation (group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '1.0.0-beta6') {
+        exclude group: 'org.bytedeco', module: 'opencv-platform'
+        exclude group: 'org.bytedeco', module: 'leptonica-platform'
+        exclude group: 'org.bytedeco', module: 'hdf5-platform'
+    }
+
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6')
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-arm")
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-arm64")
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-x86")
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-x86_64")
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3'
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3', classifier: "android-arm"
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3', classifier: "android-arm64"
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3', classifier: "android-x86"
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3', classifier: "android-x86_64"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.3.0-1.5.3'
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.3.0-1.5.3', classifier: "android-arm"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.3.0-1.5.3', classifier: "android-arm64"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.3.0-1.5.3', classifier: "android-x86"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.3.0-1.5.3', classifier: "android-x86_64"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.79.0-1.5.3'
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.79.0-1.5.3', classifier: "android-arm"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.79.0-1.5.3', classifier: "android-arm64"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.79.0-1.5.3', classifier: "android-x86"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.79.0-1.5.3', classifier: "android-x86_64"
+    //endregion
 
 }
