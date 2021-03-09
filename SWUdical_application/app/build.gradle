@@ -43,21 +43,21 @@ android {
     applicationVariants.all {
         variant -> variant.getRuntimeConfiguration().exclude group: 'com.google.code.findbugs', module: 'jsr305'
             variant.getRuntimeConfiguration().exclude group: 'com.google.code.findbugs', module: 'annotations'
-            variant.getRuntimeConfiguration().exclude group: 'com.google.guava', module: 'guava'
+            //variant.getRuntimeConfiguration().exclude group: 'com.google.guava', module: 'guava'
     }
 
-    packagingOptions{
-        exclude 'google/protobuf/empty.proto'
-        exclude 'google/protobuf/field_mask.proto'
-        exclude 'google/protobuf/type.proto'
-        exclude 'google/protobuf/timestamp.proto'
-        exclude 'google/protobuf/struct.proto'
-        exclude 'google/protobuf/source_context.proto'
-        exclude 'google/protobuf/any.proto'
-        exclude 'google/protobuf/wrappers.proto'
-        exclude 'google/protobuf/duration.proto'
-        exclude 'google/protobuf/api.proto'
-    }
+//    packagingOptions{
+//        exclude 'google/protobuf/empty.proto'
+//        exclude 'google/protobuf/field_mask.proto'
+//        exclude 'google/protobuf/type.proto'
+//        exclude 'google/protobuf/timestamp.proto'
+//        exclude 'google/protobuf/struct.proto'
+//        exclude 'google/protobuf/source_context.proto'
+//        exclude 'google/protobuf/any.proto'
+//        exclude 'google/protobuf/wrappers.proto'
+//        exclude 'google/protobuf/duration.proto'
+//        exclude 'google/protobuf/api.proto'
+//    }
 }
 
 dependencies {
@@ -65,9 +65,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
-    implementation 'com.google.android.material:material:1.2.1'
-    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.3.0'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
@@ -76,30 +76,31 @@ dependencies {
 
     // 구글
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
-    implementation 'com.google.firebase:firebase-auth:20.0.2'
+    implementation 'com.google.firebase:firebase-auth:20.0.3'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
-    implementation 'com.google.firebase:firebase-firestore:22.0.1'
-    implementation 'com.google.firebase:firebase-database:16.0.5'
+    implementation 'com.google.firebase:firebase-firestore:22.1.1'
+    implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
     implementation 'com.google.firebase:firebase-storage-ktx'
-    //implementation 'com.google.firebase:firebase-auth'
 
     // 페이스북 로그인
     implementation 'com.facebook.android:facebook-android-sdk:4.39.0'
-    implementation 'com.facebook.android:facebook-login:[8.1)'
+    implementation 'com.facebook.android:facebook-login:4.39.0'
 
     //region Nd4j
     implementation (group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '1.0.0-beta6') {
         exclude group: 'org.bytedeco', module: 'opencv-platform'
         exclude group: 'org.bytedeco', module: 'leptonica-platform'
         exclude group: 'org.bytedeco', module: 'hdf5-platform'
+        exclude group: 'org.nd4j', module: 'protobuf'
+        //excoude group: 'com.google.guava', module: 'guava'
     }
 
-    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6')
-    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-arm")
-    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-arm64")
-    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-x86")
-    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-x86_64")
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6') { exclude group: 'org.nd4j', module: 'protobuf' }
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-arm") { exclude group: 'org.nd4j', module: 'protobuf' }
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-arm64") { exclude group: 'org.nd4j', module: 'protobuf' }
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-x86") { exclude group: 'org.nd4j', module: 'protobuf' }
+    implementation (group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta6', classifier: "android-x86_64") { exclude group: 'org.nd4j', module: 'protobuf' }
     implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3'
     implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3', classifier: "android-arm"
     implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.9-1.5.3', classifier: "android-arm64"
@@ -118,3 +119,5 @@ dependencies {
     //endregion
 
 }
+
+//apply plugin: 'com.google.gms.google-services'
