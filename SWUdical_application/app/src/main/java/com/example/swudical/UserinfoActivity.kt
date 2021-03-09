@@ -3,49 +3,90 @@ package com.example.swudical
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import com.example.swudical.DTO.UserInfoDTO
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_userinfo.*
 
 class UserInfoActivity : AppCompatActivity() {
 
-    private lateinit var emailId: EditText
-    private lateinit var nameId: EditText
-    private lateinit var registerNumId1: EditText
-    private lateinit var registerNumId2: EditText
+    private lateinit var et_name: EditText
+    private lateinit var et_email: EditText
+    private lateinit var et_sex: EditText
+    private lateinit var et_birthday: EditText
+
+    val user = FirebaseAuth.getInstance().currentUser
+    val db = FirebaseFirestore.getInstance()
+
+//    var user = FirebaseAuth.getInstance().currentUser
+//    var db : FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_userinfo)
 
-        emailId = findViewById(R.id.editTextTextEmailAddress)
-        nameId = findViewById(R.id.userinfo_name)
-        registerNumId1 = findViewById(R.id.userinfo_birth)
-        registerNumId2 = findViewById(R.id.userinfo_sex)
+        //region 컴포넌트
+        et_email = findViewById(R.id.editTextTextEmailAddress)
+        et_name = findViewById(R.id.userinfo_name)
+        et_birthday = findViewById(R.id.userinfo_birth)
+        et_sex = findViewById(R.id.userinfo_sex)
+        //endregion
 
-        //next 버튼 클릭
+        //region next 버튼 클릭 이벤트
         userinfo_next.setOnClickListener{
             if(ValidateEmail()){ //이메일 유효성검사
                 if(ValidateName()){ //이름 유효성검사
-                    if(ValidRegisterNum()){//주민등록번호 유효성검사
+                    if(ValidRegisterNum()){ //주민등록번호 유효성검사
+                        setData()
                         val intent = Intent(this, HomeActivity::class.java)
                         startActivity(intent)
                     }
                 }
             }
         }
+        //endregion
     }
+
+    //region 사용자 정보 저장 함수
+    private fun setData() {
+        val name = et_name.text.toString()
+        val email = et_email.text.toString()
+        val sex = et_sex.text.toString()
+        val birthday = et_birthday.text.toString()
+
+        val userInfo = UserInfoDTO(
+            name,
+            email,
+            sex,
+            birthday
+        )
+
+        db?.collection("user_info")?.document(user?.email.toString())
+            ?.set(userInfo)
+            ?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    //Toast.makeText(this, "성공했다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "실패", Toast.LENGTH_SHORT).show()
+                    Log.e("TAG", task.exception.toString())
+                }
+            }
+    }
+    //endregion
 
     //region 이메일 유효성검사
     private fun ValidateEmail(): Boolean {
-        var emailPattern = "[a-zA-Z0-9.-]+@[a-z]+\\.+[a-z]+"
+        val emailPattern = "[a-zA-Z0-9.-]+@[a-z]+\\.+[a-z]+"
 
-        if (emailId.text.toString().isEmpty()) { //공백검사
+        if (et_email.text.toString().isEmpty()) { //공백검사
             Toast.makeText(applicationContext, "enter email address", Toast.LENGTH_SHORT).show()
             return false
         }
         else { //형식검사
-            if (emailId.text.toString().trim { it <= ' ' }.matches(emailPattern.toRegex())) {//이메일 유효성검사 성공
+            if (et_email.text.toString().trim { it <= ' ' }.matches(emailPattern.toRegex())) {//이메일 유효성검사 성공
                 return true
             }
             else {
@@ -58,7 +99,7 @@ class UserInfoActivity : AppCompatActivity() {
 
     //region 이름 유효성검사
     private fun ValidateName(): Boolean{
-        if(nameId.text.toString().isEmpty()){ //공백검사
+        if(et_name.text.toString().isEmpty()){ //공백검사
             Toast.makeText(applicationContext, "enter name", Toast.LENGTH_SHORT).show()
             return false
         }
@@ -69,11 +110,11 @@ class UserInfoActivity : AppCompatActivity() {
 
     //region 주민등록번호 유효성검사
     private fun ValidRegisterNum(): Boolean{
-        if(registerNumId1.text.toString().length != 6){ //주민번호 앞자리 공백검사
+        if(et_birthday.text.toString().length != 6){ //주민번호 앞자리 공백검사
             Toast.makeText(applicationContext, "enter register number", Toast.LENGTH_SHORT).show()
             return false
         }
-        else if(registerNumId2.text.toString().isEmpty()){ //주민번호 뒷자리 공백검사
+        else if(et_sex.text.toString().isEmpty()){ //주민번호 뒷자리 공백검사
             Toast.makeText(applicationContext, "enter register number", Toast.LENGTH_SHORT).show()
             return false
         }
