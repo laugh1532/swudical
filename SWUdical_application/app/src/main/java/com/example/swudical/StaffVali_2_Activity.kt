@@ -23,4 +23,9 @@ class StaffVali_2_Activity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this, RecordsValiActivity::class.java))
+        finish()
+    }
 }

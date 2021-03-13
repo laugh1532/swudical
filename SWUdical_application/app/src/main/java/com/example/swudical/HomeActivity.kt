@@ -28,6 +28,11 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
 
+        editinfobtn.setOnClickListener{
+            val intent = Intent(this, UserInfoActivity::class.java)
+            startActivity(intent)
+        }
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -71,5 +76,10 @@ class HomeActivity : AppCompatActivity() {
         }
 
         LoginManager.getInstance().logOut()
+    }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this, RecordsValiActivity::class.java))
+        finish()
     }
 }
