@@ -7,6 +7,7 @@
     tools:context=".HomeActivity">
     <!--xml 파일 수정 필요함-->
 
+<!--    하단바-->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -15,6 +16,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/btn_rcdvali"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/imgbtn_rcdvali"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumbarunb"
+            android:gravity="center"
+            android:text="진료기록 확인"
+            android:textColor="@color/mainBlack"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/btn_staffvali"
@@ -38,123 +52,101 @@
             android:drawablePadding="0dp"
             android:fontFamily="@font/nanumbarunb"
             android:gravity="center"
-            android:text="홈"
+            android:text="마이 페이지"
             android:textColor="@color/mainBlack"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/btn_rcdvali"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/imgbtn_rcdvali"
-            android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
-            android:gravity="center"
-            android:text="진료기록 확인"
-            android:textColor="@color/mainBlack"
-            android:textSize="15sp" />
+
     </LinearLayout>
+
+<!--    프사-->
+
+    <!--    로그아웃-->
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="406dp"
-        android:layout_height="179dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="186dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editbtn"
+        app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096"
+        app:layout_constraintVertical_bias="0.163"
         app:srcCompat="@drawable/img_profile" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:gravity="center"
-        android:text="991209-2xxxxxx"
-        android:textColor="@color/mainNavy"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/logoutbtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--    수정-->
 
-    <ImageView
+    <Button
         android:id="@+id/logoutbtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="84dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:srcCompat="@drawable/logout" />
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="56dp"
+        android:background="#EAE3F6"
+        android:text="LOGOUT"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/editbtn" />
+
+    <Button
+        android:id="@+id/editbtn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="56dp"
+        android:background="#EAE3F6"
+        android:text="EDIT"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="76dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/logo"
+        android:layout_width="122dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785"
-        app:srcCompat="@drawable/edit" />
+        app:srcCompat="@drawable/swudical_logo" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/icon_id"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_name"
+        app:srcCompat="@drawable/ic_baseline_assignment_ind_24" />
+
+    <ImageView
+        android:id="@+id/icon_mail"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_id"
+        app:srcCompat="@drawable/ic_baseline_mail_24" />
+
+    <ImageView
+        android:id="@+id/icon_name"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785"
-        app:srcCompat="@drawable/ic_baseline_highlight_off_24" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:gravity="center"
-        android:text="주민 번호"
-        android:textColor="@color/mainPurple"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="143dp"
-        android:layout_height="48dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:gravity="center"
-        android:text="성함"
-        android:textColor="@color/mainPurple"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="145dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="28dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:gravity="center"
-        android:text="김슈니"
-        android:textColor="@color/mainNavy"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintVertical_bias="0.175"
+        app:srcCompat="@drawable/ic_baseline_face_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
