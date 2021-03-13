@@ -1,15 +1,11 @@
 package com.example.swudical
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.finishAffinity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -27,7 +23,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
-import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,24 +36,6 @@ class MainActivity : AppCompatActivity() {
     //private const val TAG = "GoogleActivity"
     private val RC_SIGN_IN = 99
     private val TAG = "facebooklogin"
-
-    //뒤로가기 연속 클릭 대기 시간
-    private var mBackWait:Long = 0
-
-    override fun onBackPressed() {
-        // 뒤로가기 버튼 클릭
-        if(System.currentTimeMillis() - mBackWait >=2000 ) {
-            mBackWait = System.currentTimeMillis()
-            val t1 = Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT)
-            t1.show()
-        } else {
-            finish()
-            finishAffinity()
-            System.runFinalization()
-            exitProcess(0)
-        }
-    }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -167,5 +144,4 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
     // signIn End
-
 }

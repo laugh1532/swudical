@@ -33,11 +33,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
 
-        editinfobtn.setOnClickListener{
-            val intent = Intent(this, UserInfoActivity::class.java)
-            startActivity(intent)
-        }
-
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -59,6 +54,8 @@ class HomeActivity : AppCompatActivity() {
 
         // 하단 바
         btn_staffvali.setOnClickListener{
+//            val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
+//            t1.show()
             val intent = Intent(this, StaffValiActivity::class.java)
             startActivity(intent)
         }
@@ -78,13 +75,18 @@ class HomeActivity : AppCompatActivity() {
 
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
+            //updateUI(null)
         }
 
-        LoginManager.getInstance().logOut()
-    }
-
-    override fun onBackPressed() {
-        startActivity(Intent(this, RecordsValiActivity::class.java))
-        finish()
+        // facebook log out
+        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
+        if(user!=null) {
+            val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
+            if(isLoggedIn) {
+                FirebaseAuth.getInstance().signOut()
+                LoginManager.getInstance().logOut()
+            }
+        }
     }
 }
