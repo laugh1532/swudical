@@ -118,6 +118,8 @@ dependencies {
     implementation group: 'org.bytedeco', name: 'leptonica', version: '1.79.0-1.5.3', classifier: "android-x86_64"
     //endregion
 
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
 }
 
 //apply plugin: 'com.google.gms.google-services'

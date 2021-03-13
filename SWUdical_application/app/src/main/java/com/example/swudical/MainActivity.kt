@@ -3,7 +3,6 @@ package com.example.swudical
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.AccessToken
@@ -22,7 +21,6 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,14 +38,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         // 페이스북 로그인 버튼 설정
         // var -> val로 수정함 0306 20:48
         val facebookButton = findViewById<Button>(R.id.login_button)
-        facebookButton.setOnClickListener { facebookLogin() }
+        facebookButton.setOnClickListener {
+            facebookLogin()
+        }
         callbackManager = CallbackManager.Factory.create()
 
         // google_sign_btn.setOnClickListener (this) // 구글 로그인 버튼
-        google_sign_btn.setOnClickListener {signIn()}
+        google_sign_btn.setOnClickListener {
+            signIn()
+        }
+
         //Google 로그인 옵션 구성. requestIdToken 및 Email 요청
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -99,6 +103,7 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
                 if(firebaseAuth.currentUser !=null) {
+
                     startActivity(Intent(this, RecordsValiActivity::class.java))
                     finish()
                 }
@@ -128,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         var credential = FacebookAuthProvider.getCredential(token?.token!!)
         firebaseAuth?.signInWithCredential(credential)
             ?.addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
+                if (task.isComplete) {
                     Log.d(TAG, "로그인 성공")
                     val user = firebaseAuth!!.currentUser
                     startActivity(Intent(this, RecordsValiActivity::class.java))
