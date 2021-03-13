@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.facebook.AccessToken
+import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -68,6 +71,17 @@ class HomeActivity : AppCompatActivity() {
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
             //updateUI(null)
+        }
+
+        // facebook log out
+        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
+        if(user!=null) {
+            val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
+            if(isLoggedIn) {
+                FirebaseAuth.getInstance().signOut()
+                LoginManager.getInstance().logOut()
+            }
         }
     }
 }
