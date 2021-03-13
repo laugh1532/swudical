@@ -21,9 +21,6 @@ class UserInfoActivity : AppCompatActivity() {
     val user = FirebaseAuth.getInstance().currentUser
     val db = FirebaseFirestore.getInstance()
 
-//    var user = FirebaseAuth.getInstance().currentUser
-//    var db : FirebaseFirestore? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_userinfo)
@@ -40,9 +37,7 @@ class UserInfoActivity : AppCompatActivity() {
             if(ValidateEmail()){ //이메일 유효성검사
                 if(ValidateName()){ //이름 유효성검사
                     if(ValidRegisterNum()){ //주민등록번호 유효성검사
-                        setData()
-                        val intent = Intent(this, HomeActivity::class.java)
-                        startActivity(intent)
+                        setData() //사용자 정보 저장 및 다음 화면 넘어가기
                     }
                 }
             }
@@ -64,13 +59,15 @@ class UserInfoActivity : AppCompatActivity() {
             birthday
         )
 
-        db?.collection("user_info")?.document(user?.email.toString())
-            ?.set(userInfo)
-            ?.addOnCompleteListener { task ->
+        db.collection("user_info").document(user?.uid.toString())
+            .set(userInfo)
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    //Toast.makeText(this, "성공했다.", Toast.LENGTH_SHORT).show()
+                    //다음 화면 넘어가기
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
                 } else {
-                    Toast.makeText(this, "실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "저장하지 못했습니다.", Toast.LENGTH_SHORT).show()
                     Log.e("TAG", task.exception.toString())
                 }
             }
@@ -110,6 +107,7 @@ class UserInfoActivity : AppCompatActivity() {
 
     //region 주민등록번호 유효성검사
     private fun ValidRegisterNum(): Boolean{
+
         if(et_birthday.text.toString().length != 6){ //주민번호 앞자리 공백검사
             Toast.makeText(applicationContext, "enter register number", Toast.LENGTH_SHORT).show()
             return false
