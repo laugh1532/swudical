@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         if(firebaseAuth.currentUser !=null) {
-            startActivity(Intent(this, UserInfoActivity::class.java))
+            startActivity(Intent(this, RecordsValiActivity::class.java))
             finish()
         }
     } //onStart End
@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
                 if(firebaseAuth.currentUser !=null) {
-                    startActivity(Intent(this, UserInfoActivity::class.java))
+                    startActivity(Intent(this, RecordsValiActivity::class.java))
                     finish()
                 }
             } else {
@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d(TAG, "로그인 성공")
                     val user = firebaseAuth!!.currentUser
-                    startActivity(Intent(this, UserInfoActivity::class.java))
+                    startActivity(Intent(this, RecordsValiActivity::class.java))
                     finish()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)

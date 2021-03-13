@@ -9,11 +9,24 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/btn_rcdvali"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/imgbtn_rcdvali"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumbarunb"
+            android:gravity="center"
+            android:text="진료기록 확인"
+            android:textColor="@color/mainBlack"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/btn_staffvali"
@@ -37,22 +50,11 @@
             android:drawablePadding="0dp"
             android:fontFamily="@font/nanumbarunb"
             android:gravity="center"
-            android:text="홈"
+            android:text="마이 페이지"
             android:textColor="@color/mainBlack"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/btn_rcdvali"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/imgbtn_rcdvali"
-            android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
-            android:gravity="center"
-            android:text="진료기록 확인"
-            android:textColor="@color/mainBlack"
-            android:textSize="15sp" />
+
     </LinearLayout>
 
     <TextView
