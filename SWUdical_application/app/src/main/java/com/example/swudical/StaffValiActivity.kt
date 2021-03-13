@@ -129,4 +129,9 @@ class StaffValiActivity : AppCompatActivity() {
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength)
     }
     //endregion
+
+    override fun onBackPressed() {
+        startActivity(Intent(this, RecordsValiActivity::class.java))
+        finish()
+    }
 }

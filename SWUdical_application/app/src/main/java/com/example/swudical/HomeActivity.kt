@@ -68,23 +68,20 @@ class HomeActivity : AppCompatActivity() {
         // Firebase sign out
         firebaseAuth.signOut()
 
-
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
             //updateUI(null)
         }
 
-        LoginManager.getInstance().logOut()
-
-//        // facebook log out
-//        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
-//        val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
-//        if(user!=null) {
-//            val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
-//            if(isLoggedIn) {
-//                FirebaseAuth.getInstance().signOut()
-//                LoginManager.getInstance().logOut()
-//            }
-//        }
+        // facebook log out
+        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
+        if(user!=null) {
+            val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
+            if(isLoggedIn) {
+                FirebaseAuth.getInstance().signOut()
+                LoginManager.getInstance().logOut()
+            }
+        }
     }
 }
