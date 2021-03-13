@@ -49,8 +49,6 @@ class HomeActivity : AppCompatActivity() {
 
         // 하단 바
         btn_staffvali.setOnClickListener{
-//            val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
-//            t1.show()
             val intent = Intent(this, StaffValiActivity::class.java)
             startActivity(intent)
         }
@@ -70,18 +68,8 @@ class HomeActivity : AppCompatActivity() {
 
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
-            //updateUI(null)
         }
 
-        // facebook log out
-        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
-        val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
-        if(user!=null) {
-            val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
-            if(isLoggedIn) {
-                FirebaseAuth.getInstance().signOut()
-                LoginManager.getInstance().logOut()
-            }
-        }
+        LoginManager.getInstance().logOut()
     }
 }
