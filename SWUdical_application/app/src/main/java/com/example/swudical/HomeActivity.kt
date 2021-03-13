@@ -25,7 +25,6 @@ class HomeActivity : AppCompatActivity() {
     val RC_SIGN_IN = 1000
 
     // Access a Cloud Firestore instance from your Activity
-    //https://firebase.google.com/docs/firestore/quickstart#kotlin+ktx
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
