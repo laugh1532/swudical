@@ -1,26 +1,20 @@
 package com.example.swudical
 
-import android.R
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.swudical.DTO.MedicalConfirmDTO
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
-import io.grpc.InternalChannelz.id
-import kotlinx.android.synthetic.main.activity_home.btn_home
-import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
-import kotlinx.android.synthetic.main.activity_home.btn_staffvali
-import kotlinx.android.synthetic.main.activity_records_vali.*
+//import kotlinx.android.synthetic.main.activity_home.btn_home
+//import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
+//import kotlinx.android.synthetic.main.activity_home.btn_staffvali
 import kotlinx.android.synthetic.main.activity_staff_vali.*
-import kotlinx.android.synthetic.main.activity_staff_vali.view.*
 import org.nd4j.linalg.factory.Nd4j
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
@@ -30,11 +24,35 @@ import java.nio.channels.FileChannel
 import kotlin.jvm.Throws
 
 class StaffValiActivity : AppCompatActivity() {
+
+    private val firestore = FirebaseFirestore.getInstance()
+    private val user = FirebaseAuth.getInstance()
+    private var uid = user.currentUser?.uid.toString()
+    private var medicalList:ArrayList<MedicalConfirmDTO> = ArrayList<MedicalConfirmDTO>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.swudical.R.layout.activity_staff_vali)
 
-        //region firebase storage
+        //region 의료진확인 리스트 불러오기
+        firestore.collection("/medical_confirmation")
+            .whereEqualTo("user_id", uid)
+            .get()
+            .addOnSuccessListener { result ->
+
+                var medicalConfirmDTO: MedicalConfirmDTO
+
+                for (document in result) {
+                    medicalConfirmDTO = document.toObject(MedicalConfirmDTO::class.java)
+                    medicalList.add(medicalConfirmDTO)
+                }
+
+                val adapter = RecyclerViewAdapter(medicalList)
+                rv_medicalList.adapter = adapter
+            }
+        //endregion
+
+        //region 화자인식
         val storage = Firebase.storage("gs://swudical.appspot.com")
         val storageRef: StorageReference = storage.getReference()
         val pathReference = storageRef.child("정유경(여)40_byte.npy")
@@ -60,7 +78,7 @@ class StaffValiActivity : AppCompatActivity() {
 
             //레이블 출력
             for(i in 0..19){
-                var str = "answer(" + i + ") : " + answer[i] + "\n"
+                val str = "answer(" + i + ") : " + answer[i] + "\n"
                 Log.e("TAG", str)
             }
 
@@ -68,6 +86,7 @@ class StaffValiActivity : AppCompatActivity() {
             Log.e("TAG", "error")
         }
         //endregion
+
 
 //        **  하단바  **
 //        의료진 확인
@@ -87,25 +106,6 @@ class StaffValiActivity : AppCompatActivity() {
         }
     }
 //        **  [끝] 하단바 [끝]  **
-
-    //    **  누르면 의사 이름 반환  **
-    fun StaffValirowNum1(view: View) {
-        val doc = StaffVali_row_1_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
-    fun StaffValirowNum2(view: View) {
-        val doc = StaffVali_row_2_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
-    fun StaffValirowNum3(view: View) {
-        val doc = StaffVali_row_3_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
-    fun StaffValirowNum4(view: View) {
-        val doc = StaffVali_row_4_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
-//        **  [끝] 누르면 의사 이름 반환 [끝]  **
 
     //region interpreter
     private fun getTfliteInterpreter(modelPath: String): Interpreter? {
