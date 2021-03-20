@@ -89,22 +89,22 @@ class StaffValiActivity : AppCompatActivity() {
 //        **  [끝] 하단바 [끝]  **
 
     //    **  누르면 의사 이름 반환  **
-    fun StaffValirowNum1(view: View) {
-        val doc = StaffVali_row_1_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
-    fun StaffValirowNum2(view: View) {
-        val doc = StaffVali_row_2_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
-    fun StaffValirowNum3(view: View) {
-        val doc = StaffVali_row_3_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
-    fun StaffValirowNum4(view: View) {
-        val doc = StaffVali_row_4_3.text.toString()
-        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
-    }
+//    fun StaffValirowNum1(view: View) {
+//        val doc = StaffVali_row_1_3.text.toString()
+//        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
+//    }
+//    fun StaffValirowNum2(view: View) {
+//        val doc = StaffVali_row_2_3.text.toString()
+//        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
+//    }
+//    fun StaffValirowNum3(view: View) {
+//        val doc = StaffVali_row_3_3.text.toString()
+//        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
+//    }
+//    fun StaffValirowNum4(view: View) {
+//        val doc = StaffVali_row_4_3.text.toString()
+//        Toast.makeText(this, doc, Toast.LENGTH_SHORT).show()
+//    }
 //        **  [끝] 누르면 의사 이름 반환 [끝]  **
 
     //region interpreter

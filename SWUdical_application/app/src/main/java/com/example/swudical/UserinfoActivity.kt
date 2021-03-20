@@ -43,6 +43,7 @@ class UserInfoActivity : AppCompatActivity() {
             }
         }
         //endregion
+
     }
 
     //region 사용자 정보 저장 함수
