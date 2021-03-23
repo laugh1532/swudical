@@ -1,11 +1,13 @@
 package com.example.swudical
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swudical.DTO.MedicalConfirmDTO
 import kotlinx.android.synthetic.main.item_list.view.*
@@ -27,29 +29,31 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d("TEST", "onBindViewHolder");
         val item = items[position]
-//        val listener = View.OnClickListener { it ->
-//            Toast.makeText(it.context, "Clicked: ${item.surgery}", Toast.LENGTH_LONG).show()
-//        }
         holder.bindViewHolder(item)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, StaffVali_1_Activity::class.java)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
+        }
     }
-
-
 
     //데이터 세트 크기 호출
     override fun getItemCount() = items.size
 
-    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        private var view: View = v
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var view: View = itemView
+
+        init{
+            itemView.setOnClickListener {
+//                val intent = Intent(holder.itemView?.context, StaffVali_1_Activity::class.java)
+//                ContextCompat.startActivity(holder.itemView.context, intent, null)
+            }
+        }
 
         fun bindViewHolder(item: MedicalConfirmDTO) {
             view.date.text = item.date
             view.surgery.text = item.surgery
             view.doctor.text = item.doctor_name
             view.hospital.text = item.hospital_name
-            view.layout.setOnClickListener {
-                Toast.makeText(it.context, "Clicked: ${item.surgery}", Toast.LENGTH_LONG).show()
-                Log.d("TEST", "onBindViewHolder")
-            }
         }
 
     }

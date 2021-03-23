@@ -63,223 +63,26 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
     <!--    표-->
-    <TableLayout
-        android:layout_width="354dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/table_outside"
-        android:stretchColumns="*"
+    <!--    하단바-->
+
+    <LinearLayout
+        android:layout_width="326dp"
+        android:layout_height="226dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702">
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.366">
 
-        <TableRow
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_medicalList"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_list"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/RecordVali_title_row_1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside_violet"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:text="병원"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_title_row_2"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside_violet"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:text="날짜"
-                android:textSize="24sp" />
-
-
-
-            <TextView
-                android:id="@+id/RecordVali_title_row_3"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside_violet"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:text="병명"
-                android:textSize="24sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <TextView
-                android:id="@+id/RecordVali_row_1_1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum1"
-                android:text="OO병원"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_1_2"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum1"
-                android:text="20.03.07."
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_1_3"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum1"
-                android:text="뇌종양 수술"
-                android:textSize="24sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <TextView
-                android:id="@+id/RecordVali_row_2_1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum2"
-                android:text="XX병원"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_2_2"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum2"
-                android:text="20.05.17."
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_2_3"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum2"
-                android:text="맹장 수술"
-                android:textSize="24sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <TextView
-                android:id="@+id/RecordVali_row_3_1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum3"
-                android:text="QQ병원"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_3_2"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum3"
-                android:text="20.07.20."
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_3_3"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum3"
-                android:text="라식 수술"
-                android:textSize="24sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <TextView
-                android:id="@+id/RecordVali_row_4_1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum4"
-                android:text="ZZ병원"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_4_2"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum4"
-                android:text="20.03.07."
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/RecordVali_row_4_3"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/table_inside"
-                android:clickable="true"
-                android:fontFamily="@font/nanumbarunb"
-                android:gravity="center"
-                android:onClick="RecordValirowNum4"
-                android:text="무릎 수술"
-                android:textSize="24sp" />
-        </TableRow>
-    </TableLayout>
-    <!--    하단바-->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
