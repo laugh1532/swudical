@@ -43,6 +43,7 @@ class UserInfoActivity : AppCompatActivity() {
             }
         }
         //endregion
+
     }
 
     //region 사용자 정보 저장 함수
@@ -65,6 +66,11 @@ class UserInfoActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     //다음 화면 넘어가기
                     val intent = Intent(this, HomeActivity::class.java)
+                    // 다음 화면에 값 넣어주기
+                    intent.putExtra("email", email)
+                    intent.putExtra("name", name)
+
+
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "저장하지 못했습니다.", Toast.LENGTH_SHORT).show()

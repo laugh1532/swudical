@@ -5,6 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.swudical.DTO.MedicalConfirmDTO
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
@@ -22,14 +25,32 @@ import kotlin.jvm.Throws
 
 class StaffValiActivity : AppCompatActivity() {
 
-    private var Common = Common()
+    private val firestore = FirebaseFirestore.getInstance()
+    private val user = FirebaseAuth.getInstance()
+    private var uid = user.currentUser?.uid.toString()
+    private var medicalList:ArrayList<MedicalConfirmDTO> = ArrayList<MedicalConfirmDTO>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_staff_vali)
+        setContentView(com.example.swudical.R.layout.activity_staff_vali)
 
-        //진료기록 조회
-        Common.ReadMedicalConfirm(rv_medicalList)
+        //region 의료진확인 리스트 불러오기
+        firestore.collection("/medical_confirmation")
+            .whereEqualTo("user_id", uid)
+            .get()
+            .addOnSuccessListener { result ->
+
+                var medicalConfirmDTO: MedicalConfirmDTO
+
+                for (document in result) {
+                    medicalConfirmDTO = document.toObject(MedicalConfirmDTO::class.java)
+                    medicalList.add(medicalConfirmDTO)
+                }
+
+                val adapter = RecyclerViewAdapter(medicalList)
+                rv_medicalList.adapter = adapter
+            }
+        //endregion
 
         //region 화자인식
         val storage = Firebase.storage("gs://swudical.appspot.com")

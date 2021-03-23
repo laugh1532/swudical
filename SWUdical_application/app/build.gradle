@@ -79,7 +79,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.3'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'com.google.firebase:firebase-firestore:22.1.1'
-    implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
     implementation 'com.google.firebase:firebase-storage-ktx'
 
@@ -120,7 +120,6 @@ dependencies {
 
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    // firestore
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:26.5.0')
 
@@ -128,6 +127,7 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
+    implementation "org.jetbrains.anko:anko:$anko_version"
 }
 
 //apply plugin: 'com.google.gms.google-services'
