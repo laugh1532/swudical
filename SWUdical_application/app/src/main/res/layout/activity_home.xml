@@ -63,19 +63,15 @@
 
     <!--    로그아웃-->
 
+    <!--    수정-->
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="186dp"
         android:layout_height="175dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editinfobtn"
-        app:layout_constraintHorizontal_bias="0.561"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163"
-        app:srcCompat="@drawable/img_profile" />
-
-    <!--    수정-->
+        app:srcCompat="@drawable/img_profile"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="101dp" />
 
     <Button
         android:id="@+id/logoutbtn"
@@ -96,13 +92,15 @@
         android:id="@+id/editinfobtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="56dp"
         android:background="#EAE3F6"
         android:fontFamily="@font/nanumbarunb"
         android:text="EDIT"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -112,17 +110,18 @@
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.676"
         app:srcCompat="@drawable/swudical_logo" />
 
     <ImageView
         android:id="@+id/icon_id"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_name"
         app:srcCompat="@drawable/ic_baseline_assignment_ind_24" />
@@ -131,65 +130,67 @@
         android:id="@+id/icon_mail"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_id"
-        app:layout_constraintVertical_bias="0.198"
+        app:layout_constraintVertical_bias="0.199"
         app:srcCompat="@drawable/ic_baseline_mail_24" />
 
     <ImageView
         android:id="@+id/icon_name"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485"
         app:srcCompat="@drawable/ic_baseline_face_24" />
 
     <TextView
         android:id="@+id/home_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
         android:fontFamily="@font/nanumbarunb"
-        android:gravity="start"
+        android:gravity="center"
         android:text="\'EDIT\'을 눌러주세요!"
-        android:textSize="27sp"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toEndOf="@+id/icon_name"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
 
     <TextView
         android:id="@+id/home_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/nanumbarunb"
-        android:gravity="start"
+        android:gravity="center"
         android:text="\'EDIT\'을 눌러주세요!"
-        android:textSize="27sp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintHorizontal_bias="0.293"
         app:layout_constraintStart_toEndOf="@+id/icon_id"
         app:layout_constraintTop_toBottomOf="@+id/home_name" />
 
     <TextView
         android:id="@+id/home_mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
         android:fontFamily="@font/nanumbarunb"
-        android:gravity="start"
+        android:gravity="center"
         android:text="\'EDIT\'을 눌러주세요!"
-        android:textSize="27sp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintHorizontal_bias="0.293"
         app:layout_constraintStart_toEndOf="@+id/icon_mail"
         app:layout_constraintTop_toBottomOf="@+id/home_id"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.158" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
