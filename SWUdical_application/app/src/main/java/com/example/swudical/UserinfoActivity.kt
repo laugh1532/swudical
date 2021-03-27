@@ -1,5 +1,6 @@
 package com.example.swudical
 
+import android.app.Application
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,10 @@ import com.example.swudical.DTO.UserInfoDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_userinfo.*
+import android.content.Context
+import android.content.SharedPreferences
+import android.provider.ContactsContract
+import android.view.contentcapture.DataShareRequest
 
 class UserInfoActivity : AppCompatActivity() {
 
@@ -134,3 +139,23 @@ class UserInfoActivity : AppCompatActivity() {
         finish()
     }
 }
+
+//class DataSharedPreferences(context: Context){
+//    private val prefsFilename = "prefs"
+//    private val prefsKeyEdt = "EditText"
+//    private val prefs: SharedPreferences = context.getSharedPreferences(prefsFilename, 0)
+//    var myEditText: String?
+//        get() = prefs.getString(prefsKeyEdt, "")
+//        set(value) = prefs.edit().putString(prefsKeyEdt, value).apply()
+//}
+//
+//class App : Application(){
+//    companion object{
+//        lateinit var prefs : DataSharedPreferences
+//    }
+//
+//    override fun onCreate() {
+//        prefs = DataSharedPreferences(applicationContext)
+//        super.onCreate()
+//    }
+//}
