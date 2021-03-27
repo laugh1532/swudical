@@ -1,9 +1,12 @@
 package com.example.swudical
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.example.swudical.DTO.UserInfoDTO
 import com.facebook.AccessToken
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -11,8 +14,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import it.unimi.dsi.fastutil.ints.Int2ReferenceAVLTreeMap
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_userinfo.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -23,7 +29,12 @@ class HomeActivity : AppCompatActivity() {
 
     val RC_SIGN_IN = 1000
 
+    val user = FirebaseAuth.getInstance()
+    val db = FirebaseFirestore.getInstance()
+    val uid = user.currentUser?.uid.toString()
 
+
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -52,7 +63,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        
+
 
         // 하단 바
         btn_staffvali.setOnClickListener{
@@ -69,6 +80,49 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, RecordsValiActivity::class.java)
             startActivity(intent)
         }
+
+
+        db.collection("user_info").document(uid)
+            .get().addOnSuccessListener { result ->
+                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+                home_name.text = userInfoDTO?.name
+            }
+            .addOnFailureListener() { exception ->
+                Log.w("ERR", "err getting documents: ", exception)
+            }
+
+        db.collection("user_info").document(uid)
+            .get().addOnSuccessListener { result ->
+                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+
+                val birthdayFromDTO = userInfoDTO?.birthday
+                val rangeYear = IntRange(0, 1)
+                val rangeMonth = IntRange(2, 3)
+                val rangeDay = IntRange(4, 5)
+                val birthday = birthdayFromDTO?.slice(rangeYear) + "년 " + birthdayFromDTO?.slice(rangeMonth) + "월 " + birthdayFromDTO?.slice(rangeDay) + "일, "
+
+                var sexkind = userInfoDTO?.sex // 1, 2, 3, 4
+                if (sexkind != null) {
+                    sexkind = if( sexkind.toInt() >= 3){
+                        "여자"
+                    } else{
+                        "남자"
+                    }
+                }
+                home_id.text = birthday + sexkind
+            }
+            .addOnFailureListener() { exception ->
+                Log.w("ERR", "err getting documents: ", exception)
+            }
+
+        db.collection("user_info").document(uid)
+            .get().addOnSuccessListener { result ->
+                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+                home_mail.text = userInfoDTO?.email
+            }
+            .addOnFailureListener() { exception ->
+                Log.w("ERR", "err getting documents: ", exception)
+            }
     }
 
     private fun signOut() { // 로그아웃

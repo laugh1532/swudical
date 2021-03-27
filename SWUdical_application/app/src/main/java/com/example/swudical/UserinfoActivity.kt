@@ -46,6 +46,7 @@ class UserInfoActivity : AppCompatActivity() {
 
     }
 
+
     //region 사용자 정보 저장 함수
     private fun setData() {
         val name = et_name.text.toString()

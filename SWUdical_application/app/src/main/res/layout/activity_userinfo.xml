@@ -10,61 +10,114 @@
         android:id="@+id/textView"
         android:layout_width="335dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="452dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/nanumbarunb"
         android:text="@string/userinfo"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="335dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/jalnan"
-        android:text="안녕하세요!"
-        android:textColor="@color/mainBlack"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_logo1" />
 
     <ImageView
         android:id="@+id/userinfo_logo1"
         android:layout_width="335dp"
         android:layout_height="93dp"
-        android:layout_marginBottom="8dp"
         android:contentDescription="TODO"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.721"
+        app:layout_constraintVertical_bias="0.047"
         app:srcCompat="@drawable/swudical_logo" />
 
     <TextView
         android:id="@+id/userinfo_name_text"
         android:layout_width="108dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/nanumbarunb"
-        android:gravity="center"
+        android:gravity="left"
         android:text="이름"
         android:textColor="@color/mainPurple"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/birthcode"
-        app:layout_constraintEnd_toStartOf="@+id/userinfo_name"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/birthcode"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/nanumbarunb"
+        android:gravity="left"
+        android:text="주민번호"
+        android:textColor="@color/mainPurple"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_name" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="104dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="@font/nanumbarunb"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="******"
+        android:textSize="33sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthcode" />
+
+    <EditText
+        android:id="@+id/userinfo_sex"
+        android:layout_width="26dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/birthcode" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="20dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/nanumbarunb"
+        android:text="-"
+        android:textSize="33sp"
+        app:layout_constraintEnd_toStartOf="@+id/userinfo_sex"
+        app:layout_constraintTop_toBottomOf="@+id/birthcode" />
+
+    <EditText
+        android:id="@+id/userinfo_birth"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="6"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthcode" />
 
     <EditText
         android:id="@+id/userinfo_name"
-        android:layout_width="200dp"
+        android:layout_width="290dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:fontFamily="@font/nanumbarunb"
         android:gravity="center"
@@ -72,124 +125,56 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textSize="24sp"
+        android:textSize="22dp"
         android:textStyle="italic"
         android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/birthcode"
-        android:layout_width="108dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:gravity="center"
-        android:text="주민번호"
-        android:textColor="@color/mainPurple"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/userinfo_birth"
-        android:layout_width="135dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="number"
-        android:maxLength="6"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/birthcode"
-        app:layout_constraintVertical_bias="0.111" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="104dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="132dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="******"
-        android:textSize="33sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
-        app:layout_constraintStart_toEndOf="@+id/userinfo_sex" />
-
-    <EditText
-        android:id="@+id/userinfo_sex"
-        android:layout_width="26dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="132dp"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="number"
-        android:maxLength="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="20dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="132dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:text="-"
-        android:textSize="33sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/userinfo_birth" />
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_name_text" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="290dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/userinfo_name"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/userinfo_next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_email_text"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/userinfo_email_text"
         android:layout_width="108dp"
         android:layout_height="45dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/nanumbarunb"
-        android:gravity="center"
+        android:gravity="left"
         android:text="이메일"
         android:textColor="@color/mainPurple"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/userinfo_name_text"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.753" />
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_birth" />
 
     <Button
         android:id="@+id/userinfo_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
         android:background="#EAE3F6"
         android:text="NEXT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.839"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.923" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
