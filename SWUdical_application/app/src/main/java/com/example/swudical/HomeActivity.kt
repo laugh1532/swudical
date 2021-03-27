@@ -47,6 +47,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        editinfobtn.setOnClickListener{
+            val intent = Intent(this, UserInfoActivity::class.java) // 메인 화면으로 이동
+            startActivity(intent)
+        }
+
+        
 
         // 하단 바
         btn_staffvali.setOnClickListener{
