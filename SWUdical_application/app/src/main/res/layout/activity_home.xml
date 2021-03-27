@@ -7,7 +7,7 @@
     tools:context=".HomeActivity">
     <!--xml 파일 수정 필요함-->
 
-<!--    하단바-->
+    <!--    하단바-->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
 
     </LinearLayout>
 
-<!--    프사-->
+    <!--    프사-->
 
     <!--    로그아웃-->
 
@@ -84,8 +84,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:background="#EAE3F6"
-        android:text="LOGOUT"
         android:fontFamily="@font/nanumbarunb"
+        android:text="LOGOUT"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -99,8 +99,8 @@
         android:layout_marginTop="124dp"
         android:layout_marginEnd="56dp"
         android:background="#EAE3F6"
-        android:text="EDIT"
         android:fontFamily="@font/nanumbarunb"
+        android:text="EDIT"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -121,9 +121,8 @@
         android:id="@+id/icon_id"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_name"
         app:srcCompat="@drawable/ic_baseline_assignment_ind_24" />
@@ -132,23 +131,21 @@
         android:id="@+id/icon_mail"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        android:layout_marginStart="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_id"
+        app:layout_constraintVertical_bias="0.198"
         app:srcCompat="@drawable/ic_baseline_mail_24" />
 
     <ImageView
         android:id="@+id/icon_name"
         android:layout_width="55dp"
         android:layout_height="55dp"
+        android:layout_marginStart="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.175"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_face_24" />
 
     <TextView
@@ -156,14 +153,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanumbarunb"
+        android:gravity="start"
         android:text="\'EDIT\'을 눌러주세요!"
-        android:textSize="30dp"
+        android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toEndOf="@+id/icon_name"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/home_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/nanumbarunb"
+        android:gravity="start"
+        android:text="\'EDIT\'을 눌러주세요!"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toEndOf="@+id/icon_id"
+        app:layout_constraintTop_toBottomOf="@+id/home_name" />
+
+    <TextView
+        android:id="@+id/home_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumbarunb"
+        android:gravity="start"
+        android:text="\'EDIT\'을 눌러주세요!"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toEndOf="@+id/icon_mail"
+        app:layout_constraintTop_toBottomOf="@+id/home_id"
+        app:layout_constraintVertical_bias="0.263" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
