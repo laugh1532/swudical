@@ -109,7 +109,9 @@ class HomeActivity : AppCompatActivity() {
                         "남자"
                     }
                 }
-                home_id.text = birthday + sexkind
+                if (birthdayFromDTO != null){
+                    home_id.text = birthday + sexkind
+                }
             }
             .addOnFailureListener() { exception ->
                 Log.w("ERR", "err getting documents: ", exception)
