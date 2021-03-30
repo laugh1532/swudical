@@ -10,7 +10,8 @@
     <!--    하단바-->
 
     <LinearLayout
-        android:layout_width="326dp"
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
         android:layout_height="226dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -21,10 +22,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_medicalList"
-            android:layout_width="match_parent"
+            android:layout_width="387dp"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_list"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_list" />
     </LinearLayout>
 
     <LinearLayout
