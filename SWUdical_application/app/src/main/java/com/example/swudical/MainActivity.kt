@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.swudical.DTO.UserInfoDTO
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -21,6 +22,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -36,6 +39,10 @@ class MainActivity : AppCompatActivity() {
     //private const val TAG = "GoogleActivity"
     private val RC_SIGN_IN = 99
     private val TAG = "facebooklogin"
+
+    val user = FirebaseAuth.getInstance()
+    val uid = user.currentUser?.uid.toString()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,7 +106,28 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
                 if(firebaseAuth.currentUser !=null) {
-                    startActivity(Intent(this, RecordsValiActivity::class.java))
+
+
+//                    db.collection("user_info").document(uid)
+//                        .get().addOnSuccessListener { result ->
+//                            val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+//                            if(userInfoDTO?.name!=null){ // 로그온 한 이력이 있는 계정
+//                                startActivity(Intent(this, RecordsValiActivity::class.java))
+//                            }else { // 첫 로그인 계정
+//                                startActivity(Intent(this, StaffValiActivity::class.java))
+//                            }
+//                        }
+
+
+                    db.collection("user_info").document(uid).get()
+                        .addOnSuccessListener { res->
+                            if(res.exists()) { // 로그온 한 이력이 있는 계정
+                                startActivity(Intent(this, RecordsValiActivity::class.java))
+                            }else{
+                                startActivity(Intent(this, UserInfoActivity::class.java))
+                            }
+                        }
+
                     finish()
                 }
             } else {
@@ -126,18 +154,25 @@ class MainActivity : AppCompatActivity() {
     // token
     private fun handleFBToken(token : AccessToken?){
         val credential = FacebookAuthProvider.getCredential(token?.token!!)
-        firebaseAuth?.signInWithCredential(credential)
-            ?.addOnCompleteListener(this) { task ->
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Log.d(TAG, "로그인 성공")
-                    val user = firebaseAuth!!.currentUser
-                    startActivity(Intent(this, RecordsValiActivity::class.java))
+                    Log.d(TAG, "LOGIN SUCCEED")
+                    db.collection("user_info").document(uid).get()
+                        .addOnSuccessListener { res->
+                            if(res.exists()) { // 로그온 한 이력이 있는 계정
+                                startActivity(Intent(this, RecordsValiActivity::class.java))
+                            }else{
+                                startActivity(Intent(this, UserInfoActivity::class.java))
+                            }
+                        }
                     finish()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                 }
             }
     }
+
 
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent

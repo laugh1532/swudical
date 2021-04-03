@@ -21,11 +21,11 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    val RC_SIGN_IN = 1000
+    // val RC_SIGN_IN = 1000
 
-    val user = FirebaseAuth.getInstance()
-    val db = FirebaseFirestore.getInstance()
-    val uid = user.currentUser?.uid.toString()
+    private val user = FirebaseAuth.getInstance()
+    private val uid = user.currentUser?.uid.toString()
+    private val db = FirebaseFirestore.getInstance()
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
