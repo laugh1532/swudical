@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
 
     // token
     private fun handleFBToken(token : AccessToken?){
-        var credential = FacebookAuthProvider.getCredential(token?.token!!)
+        val credential = FacebookAuthProvider.getCredential(token?.token!!)
         firebaseAuth?.signInWithCredential(credential)
             ?.addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -138,10 +138,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
-    // signIn
+
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
-    // signIn End
 }
