@@ -50,24 +50,13 @@ class HomeActivity : AppCompatActivity() {
         //firebase auth 객체
         firebaseAuth = FirebaseAuth.getInstance()
 
-
-        if(user.currentUser!=null){
-            logoutbtn.text = "LOGOUT"
-            logoutbtn.setOnClickListener {
-                signOut()
-                val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
-                t1.show()
-                val intent = Intent(this, MainActivity::class.java) // 메인 화면으로 이동
-                startActivity(intent)
-            }
-        } else {
-            logoutbtn.text = "LOGIN"
-            logoutbtn.setOnClickListener{
-                val intent = Intent(this, MainActivity::class.java) // 메인 화면으로 이동
-                startActivity(intent)
-            }
+        logoutbtn.setOnClickListener{
+            signOut()
+            val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
+            t1.show()
+            val intent = Intent(this, MainActivity::class.java) // 메인 화면으로 이동
+            startActivity(intent)
         }
-
 
         editinfobtn.setOnClickListener{
             val intent = Intent(this, UserInfoActivity::class.java) // 메인 화면으로 이동
@@ -145,15 +134,14 @@ class HomeActivity : AppCompatActivity() {
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
             //updateUI(null)
-            }
+        }
 
         // facebook log out
         val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
         val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
         if(user!=null) {
-            //val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
-            val isLoggedIn:Boolean = !accessToken.isExpired
-            if(isLoggedIn){
+            val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
+            if(isLoggedIn) {
                 FirebaseAuth.getInstance().signOut()
                 LoginManager.getInstance().logOut()
             }

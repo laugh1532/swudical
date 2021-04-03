@@ -8,33 +8,20 @@ import kotlinx.android.synthetic.main.activity_home.btn_home
 import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
 import kotlinx.android.synthetic.main.activity_home.btn_staffvali
 import kotlinx.android.synthetic.main.activity_records_vali.rv_medicalList
+import kotlinx.android.synthetic.main.activity_staff_vali.*
 import kotlin.system.exitProcess
 
 class RecordsValiActivity : AppCompatActivity() {
-
-    private var Common = Common()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_records_vali)
         super.onCreate(savedInstanceState)
 
         //진료기록 조회
-        Common.ReadMedicalConfirm(rv_medicalList)
+        Common.ReadMedicalConfirm(rv_medicalList, R.layout.activity_records_vali)
 
-        //region 하단 바
-        btn_staffvali.setOnClickListener{
-            val intent = Intent(this, StaffValiActivity::class.java)
-            startActivity(intent)
-        }
-        btn_home.setOnClickListener{
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
-        btn_rcdvali.setOnClickListener {
-            val intent = Intent(this, RecordsValiActivity::class.java)
-            startActivity(intent)
-        }
-        //endregion
+        //하단 바
+        Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
     }
 
 

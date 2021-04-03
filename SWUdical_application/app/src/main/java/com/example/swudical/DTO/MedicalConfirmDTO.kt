@@ -9,5 +9,6 @@ data class MedicalConfirmDTO (
     val hospital_name: String?=null,
     val surgery: String?=null,
     val user_id: String?=null,
-    val voice_path: String?=null
+    val voice_path: String?=null,
+    val doctor_id: String?=null
 )
