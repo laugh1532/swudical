@@ -85,16 +85,23 @@
         app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="311dp"
-        android:layout_height="190dp"
-        android:layout_marginBottom="44dp"
-        android:src="@drawable/staff_vali_table_2"
-        app:layout_constraintBottom_toTopOf="@+id/imageView9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView6"-->
+<!--        android:layout_width="311dp"-->
+<!--        android:layout_height="190dp"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:src="@drawable/staff_vali_table_2"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/imageView9"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" /> -->
+
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
     <TextView
         android:id="@+id/textView7"
         android:layout_width="349dp"
