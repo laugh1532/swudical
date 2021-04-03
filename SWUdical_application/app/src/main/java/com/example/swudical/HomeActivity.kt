@@ -13,18 +13,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
-import it.unimi.dsi.fastutil.ints.Int2ReferenceAVLTreeMap
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_userinfo.*
 
 class HomeActivity : AppCompatActivity() {
 
-    //firebase Auth
     private lateinit var firebaseAuth: FirebaseAuth
-    //google client
     private lateinit var googleSignInClient: GoogleSignInClient
 
     val RC_SIGN_IN = 1000
@@ -33,12 +27,10 @@ class HomeActivity : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
     val uid = user.currentUser?.uid.toString()
 
-
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -46,29 +38,27 @@ class HomeActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-
-        //firebase auth 객체
         firebaseAuth = FirebaseAuth.getInstance()
 
-        logoutbtn.setOnClickListener{
-            signOut()
-            val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
-            t1.show()
-            val intent = Intent(this, MainActivity::class.java) // 메인 화면으로 이동
-            startActivity(intent)
+        // LOGOUT
+        if(FirebaseAuth.getInstance().currentUser!=null){
+            logoutbtn.setOnClickListener{
+                signOut()
+                val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
+                t1.show()
+                // 메인 화면으로 이동
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         editinfobtn.setOnClickListener{
-            val intent = Intent(this, UserInfoActivity::class.java) // 메인 화면으로 이동
+            val intent = Intent(this, UserInfoActivity::class.java)
             startActivity(intent)
         }
 
-
-
         // 하단 바
         btn_staffvali.setOnClickListener{
-//            val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
-//            t1.show()
             val intent = Intent(this, StaffValiActivity::class.java)
             startActivity(intent)
         }
@@ -80,7 +70,6 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, RecordsValiActivity::class.java)
             startActivity(intent)
         }
-
 
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
@@ -100,7 +89,6 @@ class HomeActivity : AppCompatActivity() {
                 val rangeMonth = IntRange(2, 3)
                 val rangeDay = IntRange(4, 5)
                 val birthday = birthdayFromDTO?.slice(rangeYear) + "년 " + birthdayFromDTO?.slice(rangeMonth) + "월 " + birthdayFromDTO?.slice(rangeDay) + "일, "
-
                 var sexkind = userInfoDTO?.sex // 1, 2, 3, 4
                 if (sexkind != null) {
                     sexkind = if( sexkind.toInt() >= 3){
@@ -128,23 +116,13 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun signOut() { // 로그아웃
-        // Firebase sign out
         firebaseAuth.signOut()
+        FirebaseAuth.getInstance().signOut()
+        googleSignInClient.signOut()
 
-        // Google sign out
-        googleSignInClient.signOut().addOnCompleteListener(this) {
-            //updateUI(null)
-        }
-
-        // facebook log out
-        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
-        val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
-        if(user!=null) {
-            val isLoggedIn:Boolean = accessToken != null && !accessToken.isExpired
-            if(isLoggedIn) {
-                FirebaseAuth.getInstance().signOut()
-                LoginManager.getInstance().logOut()
-            }
+        // facebook
+        if(AccessToken.getCurrentAccessToken()!=null){
+            LoginManager.getInstance().logOut()
         }
     }
 }
