@@ -62,15 +62,15 @@ class UserInfoActivity : AppCompatActivity() {
             birthday
         )
 
+        // 다음 화면에 값 넣어주기
+        //intent.putExtra("email", email)
+        //intent.putExtra("name", name)
+
         db.collection("user_info").document(user?.uid.toString())
             .set(userInfo)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    //다음 화면 넘어가기
-                    val intent = Intent(this, HomeActivity::class.java)
-                    // 다음 화면에 값 넣어주기
-                    intent.putExtra("email", email)
-                    intent.putExtra("name", name)
+                    val intent = Intent(this, RecordsValiActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "저장하지 못했습니다.", Toast.LENGTH_SHORT).show()
@@ -133,23 +133,3 @@ class UserInfoActivity : AppCompatActivity() {
         finish()
     }
 }
-
-//class DataSharedPreferences(context: Context){
-//    private val prefsFilename = "prefs"
-//    private val prefsKeyEdt = "EditText"
-//    private val prefs: SharedPreferences = context.getSharedPreferences(prefsFilename, 0)
-//    var myEditText: String?
-//        get() = prefs.getString(prefsKeyEdt, "")
-//        set(value) = prefs.edit().putString(prefsKeyEdt, value).apply()
-//}
-//
-//class App : Application(){
-//    companion object{
-//        lateinit var prefs : DataSharedPreferences
-//    }
-//
-//    override fun onCreate() {
-//        prefs = DataSharedPreferences(applicationContext)
-//        super.onCreate()
-//    }
-//}

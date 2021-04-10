@@ -72,8 +72,14 @@ class HomeActivity : AppCompatActivity() {
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
 
-                home_name.text = userInfoDTO?.name
+                if(userInfoDTO?.name==null || userInfoDTO.sex ==null || userInfoDTO.email ==null || userInfoDTO.birthday ==null){
+                    val intent = Intent(this, UserInfoActivity::class.java)
+                    startActivity(intent)
+                }
 
+                if(userInfoDTO?.name!=null) {
+                    home_name.text = userInfoDTO?.name
+                }
                 val birthdayFromDTO = userInfoDTO?.birthday
                 val rangeYear = IntRange(0, 1)
                 val rangeMonth = IntRange(2, 3)
@@ -90,8 +96,9 @@ class HomeActivity : AppCompatActivity() {
                 if (birthdayFromDTO != null){
                     home_id.text = birthday + sexkind
                 }
-
-                home_mail.text = userInfoDTO?.email
+                if(userInfoDTO?.email!=null) {
+                    home_mail.text = userInfoDTO?.email
+                }
             }
             .addOnFailureListener() { exception ->
                 Log.w("ERR", "err getting documents: ", exception) }
@@ -113,7 +120,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        var intent = Intent(this, RecordsValiActivity::class.java)
+        val intent = Intent(this, RecordsValiActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()
