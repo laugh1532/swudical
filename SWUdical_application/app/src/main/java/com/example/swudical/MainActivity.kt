@@ -30,7 +30,6 @@ import java.util.*
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
-
     //facebook auth
     private var callbackManager: CallbackManager? = null
     //firebase Auth
