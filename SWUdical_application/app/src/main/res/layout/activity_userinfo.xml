@@ -11,9 +11,9 @@
         android:layout_width="335dp"
         android:layout_height="51dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/nanumbarunb"
+        android:fontFamily="@font/notosanskrlight"
         android:text="@string/userinfo"
-        android:textSize="18sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userinfo_logo1" />
