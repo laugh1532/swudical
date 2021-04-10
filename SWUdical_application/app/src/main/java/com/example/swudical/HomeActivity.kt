@@ -45,8 +45,11 @@ class HomeActivity : AppCompatActivity() {
                 val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
                 t1.show()
                 // 메인 화면으로 이동
-                val intent = Intent(this, MainActivity::class.java)
+                var intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK) //기존에 쌓인 task 삭제 (기존에 쌓인 스택 삭제)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) //task를 새로 생성
                 startActivity(intent)
+                finish()
             }
         }
         //endregion
@@ -62,6 +65,7 @@ class HomeActivity : AppCompatActivity() {
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+
                 home_name.text = userInfoDTO?.name
 
                 val birthdayFromDTO = userInfoDTO?.birthday
@@ -100,5 +104,12 @@ class HomeActivity : AppCompatActivity() {
         if(AccessToken.getCurrentAccessToken()!=null){
             LoginManager.getInstance().logOut()
         }
+    }
+
+    override fun onBackPressed() {
+        var intent = Intent(this, RecordsValiActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()
     }
 }

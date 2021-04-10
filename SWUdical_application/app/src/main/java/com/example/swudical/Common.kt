@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.activity_records_vali.*
 class Common {
     companion object{ //=static
 
-
         //region 진료기록 조회함수
         fun ReadMedicalConfirm(rv_medicalList: RecyclerView, layout_id: Int, context: Context){
             val firestore = FirebaseFirestore.getInstance()

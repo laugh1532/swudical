@@ -32,13 +32,12 @@ class Records_Vali_1_Activity : AppCompatActivity() {
         doctor_name.text = item.doctor_name
         diagnosis.text = item.diagnosis
         write_date.text = item.date
-
-
-
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this, RecordsValiActivity::class.java))
+        var intent = Intent(this, RecordsValiActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
         finish()
     }
 }

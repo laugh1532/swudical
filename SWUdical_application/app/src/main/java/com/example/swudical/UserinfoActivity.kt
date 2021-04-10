@@ -133,7 +133,7 @@ class UserInfoActivity : AppCompatActivity() {
     //endregion
 
     override fun onBackPressed() {
-        startActivity(Intent(this, RecordsValiActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
         finish()
     }
 }
