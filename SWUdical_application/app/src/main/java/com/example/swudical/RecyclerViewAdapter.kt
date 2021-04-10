@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swudical.DTO.MedicalConfirmDTO
 import kotlinx.android.synthetic.main.item_list.view.*
+import org.jetbrains.anko.backgroundColor
 
 class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, private val layout_id: Int) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
     override fun getItemCount() = items.size

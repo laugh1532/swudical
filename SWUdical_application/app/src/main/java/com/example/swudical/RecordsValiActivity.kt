@@ -22,12 +22,10 @@ class RecordsValiActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
-        setContentView(R.layout.activity_records_vali)
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_records_vali)
 
-        //진료기록 조회
-        Common.ReadMedicalConfirm(rv_medicalList, R.layout.activity_records_vali, this)
-
+        //OO님의 수술실
         val user = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
         val uid = user.currentUser?.uid.toString()
@@ -46,6 +44,9 @@ class RecordsValiActivity : AppCompatActivity() {
             .addOnFailureListener() { exception ->
                 Log.w("ERR", "err getting documents: ", exception)
             }
+
+        //진료기록 조회
+        Common.ReadMedicalConfirm(rv_medicalList, R.layout.activity_records_vali, this)
 
         //하단 바
         Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
