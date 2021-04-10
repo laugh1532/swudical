@@ -18,17 +18,17 @@ class Records_Vali_1_Activity : AppCompatActivity() {
 
         dept.text = item.dept
         writer.text = item.writer
-        diag_num.text = item.diag_num
+        diag_num.text = item.diag_num.toString()
         name.text = item.name
         sex.text = item.sex
-        age.text = item.age
+        age.text = item.age.toString()
         regident_num.text = item.regident_num
         tel.text = item.tel
         address.text = item.address
         treatment_period.text = item.treatment_period
         content.text = item.content
         hospital_name.text = item.hospital
-        doctor_license.text = item.doctor_license
+        doctor_license.text = item.doctor_license.toString()
         doctor_name.text = item.doctor_name
         diagnosis.text = item.diagnosis
         write_date.text = item.date

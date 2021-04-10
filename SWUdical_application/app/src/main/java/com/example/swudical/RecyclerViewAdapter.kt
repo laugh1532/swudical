@@ -48,8 +48,8 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
             if (layout_id == R.layout.activity_staff_vali){
                 itemView.setOnClickListener {
                     val intent = Intent(it.context, StaffVali_1_Activity::class.java)
-                    intent.putExtra("voice_path", item.voice_path) //voice_path
-                    intent.putExtra("doctor_id", item.doctor_id)
+                    intent.putExtra("voice_path", item.voice_path)
+                    intent.putExtra("doctor_id", item.doctor_id.toString())
                     ContextCompat.startActivity(it.context, intent, null)
                 }
             }

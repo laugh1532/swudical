@@ -28,7 +28,7 @@ class Common {
             val medicalList:ArrayList<MedicalConfirmDTO> = ArrayList<MedicalConfirmDTO>()
 
             firestore.collection("medical_confirmation")
-                .whereNotEqualTo( if(layout_id == R.layout.activity_staff_vali) "voice_path" else "user_id", null)
+                .whereNotEqualTo( if(layout_id == R.layout.activity_staff_vali) "voice_path" else "user_id", "")
                 .whereEqualTo("user_id", uid)
                 //.orderBy("date", Query.Direction.DESCENDING)
                 .get()

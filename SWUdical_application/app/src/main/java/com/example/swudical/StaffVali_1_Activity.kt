@@ -104,6 +104,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
 
     override fun onBackPressed() {
         startActivity(Intent(this, StaffValiActivity::class.java))
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         finish()
     }
 }
