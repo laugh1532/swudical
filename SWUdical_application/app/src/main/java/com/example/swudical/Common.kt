@@ -12,12 +12,13 @@ import com.example.swudical.DTO.MedicalConfirmDTO
 import com.example.swudical.DTO.UserInfoDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_records_vali.*
 
 
 class Common {
-    companion object{ //=static
+    companion object{ // =static
 
         //region 진료기록 조회함수
         fun ReadMedicalConfirm(rv_medicalList: RecyclerView, layout_id: Int, context: Context){
@@ -27,7 +28,9 @@ class Common {
             val medicalList:ArrayList<MedicalConfirmDTO> = ArrayList<MedicalConfirmDTO>()
 
             firestore.collection("medical_confirmation")
+                .whereNotEqualTo( if(layout_id == R.layout.activity_staff_vali) "voice_path" else "user_id", null)
                 .whereEqualTo("user_id", uid)
+                //.orderBy("date", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener { result ->
                     var medicalConfirmDTO: MedicalConfirmDTO
