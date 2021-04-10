@@ -105,20 +105,7 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
-                if(firebaseAuth.currentUser !=null) {
-
-
-//                    db.collection("user_info").document(uid)
-//                        .get().addOnSuccessListener { result ->
-//                            val userInfoDTO = result.toObject(UserInfoDTO::class.java)
-//                            if(userInfoDTO?.name!=null){ // 로그온 한 이력이 있는 계정
-//                                startActivity(Intent(this, RecordsValiActivity::class.java))
-//                            }else { // 첫 로그인 계정
-//                                startActivity(Intent(this, StaffValiActivity::class.java))
-//                            }
-//                        }
-
-
+                if(firebaseAuth.currentUser !=null) { // 현재 firebaseAuth로 로그인 한 사용자
                     db.collection("user_info").document(uid).get()
                         .addOnSuccessListener { res->
                             val userInfoDTO = res.toObject(UserInfoDTO::class.java)
@@ -127,11 +114,9 @@ class MainActivity : AppCompatActivity() {
                                     startActivity(Intent(this, UserInfoActivity::class.java))
                                 }
                             }else{ // 처음 로그인이 아닐 때 -> 진료기록 확인
-                                Log.w("useris", userInfoDTO.name)
                                 startActivity(Intent(this, RecordsValiActivity::class.java))
                             }
                         }
-
                     finish()
                 }
             } else {
