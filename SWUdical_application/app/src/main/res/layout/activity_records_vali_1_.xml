@@ -2,60 +2,386 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/txt_subtitle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Records_Vali_1_Activity">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="354dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/nanumbarunb"
-        android:text="선택하신 '2019.09.08. 슈디컬병원'에서 발급된 진료 확인서를 출력합니다."
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.614"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="352dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/jalnan"
-        android:text="진료기록 확인하기"
-        android:textColor="@color/mainBlack"
-        android:textSize="41dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="348dp"
-        android:layout_height="39dp"
-        android:fontFamily="@font/jalnan"
-        android:text="김슈니님의 진료실"
-        android:textColor="@color/mainPurple"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="401dp"
-        android:layout_height="569dp"
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="373dp"
+        android:layout_height="686dp"
+        android:columnCount="6"
+        android:orientation="horizontal"
+        android:rowCount="25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/recordsdocx" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowSpan="3"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="진료확인서"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="부서명"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/dept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="작성자"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/writer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="작성일자"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/write_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="진료번호"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/diag_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="5"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="성명"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="성별"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/sex"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="연령"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="주민등록번호"
+            android:textColor="#000000"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/regident_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="전화번호"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="주소"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_rowSpan="3"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="질병명"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/diagnosis"
+            android:layout_width="wrap_content"
+            android:layout_height="113dp"
+            android:layout_rowSpan="3"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="진료기간"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/treatment_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="156dp"
+            android:layout_rowSpan="6"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="진료내용"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_rowSpan="6"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="105dp"
+            android:layout_height="163dp"
+            android:layout_columnSpan="6"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="위 진료 대상자에 대하여 위와 같이 진료하였음을 확인합니다."
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="의료기관명"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/hospital_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="의사면허번호"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/doctor_license"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:text="담당의사"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="4"
+            android:layout_gravity="fill"
+            android:background="@drawable/table_inside"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+
+    </GridLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

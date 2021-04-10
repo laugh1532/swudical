@@ -21,11 +21,9 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    // val RC_SIGN_IN = 1000
-
-    private val user = FirebaseAuth.getInstance()
-    private val uid = user.currentUser?.uid.toString()
-    private val db = FirebaseFirestore.getInstance()
+    val user = FirebaseAuth.getInstance()
+    val db = FirebaseFirestore.getInstance()
+    val uid = user.currentUser?.uid.toString()
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +38,7 @@ class HomeActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // LOGOUT
+        //region 로그아웃 버튼
         if(FirebaseAuth.getInstance().currentUser!=null){
             logoutbtn.setOnClickListener{
                 signOut()
@@ -51,38 +49,20 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        //endregion
 
+        //region 편집 버튼
         editinfobtn.setOnClickListener{
             val intent = Intent(this, UserInfoActivity::class.java)
             startActivity(intent)
         }
+        //endregion
 
-        // 하단 바
-        btn_staffvali.setOnClickListener{
-            val intent = Intent(this, StaffValiActivity::class.java)
-            startActivity(intent)
-        }
-        btn_home.setOnClickListener{
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
-        btn_rcdvali.setOnClickListener {
-            val intent = Intent(this, RecordsValiActivity::class.java)
-            startActivity(intent)
-        }
-
+        //region 사용자정보 조회
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
                 home_name.text = userInfoDTO?.name
-            }
-            .addOnFailureListener() { exception ->
-                Log.w("ERR", "err getting documents: ", exception)
-            }
-
-        db.collection("user_info").document(uid)
-            .get().addOnSuccessListener { result ->
-                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
 
                 val birthdayFromDTO = userInfoDTO?.birthday
                 val rangeYear = IntRange(0, 1)
@@ -91,7 +71,7 @@ class HomeActivity : AppCompatActivity() {
                 val birthday = birthdayFromDTO?.slice(rangeYear) + "년 " + birthdayFromDTO?.slice(rangeMonth) + "월 " + birthdayFromDTO?.slice(rangeDay) + "일, "
                 var sexkind = userInfoDTO?.sex // 1, 2, 3, 4
                 if (sexkind != null) {
-                    sexkind = if( sexkind.toInt() >= 3){
+                    sexkind = if( sexkind.toInt() % 2 == 0){
                         "여자"
                     } else{
                         "남자"
@@ -100,19 +80,15 @@ class HomeActivity : AppCompatActivity() {
                 if (birthdayFromDTO != null){
                     home_id.text = birthday + sexkind
                 }
-            }
-            .addOnFailureListener() { exception ->
-                Log.w("ERR", "err getting documents: ", exception)
-            }
 
-        db.collection("user_info").document(uid)
-            .get().addOnSuccessListener { result ->
-                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
                 home_mail.text = userInfoDTO?.email
             }
             .addOnFailureListener() { exception ->
-                Log.w("ERR", "err getting documents: ", exception)
-            }
+                Log.w("ERR", "err getting documents: ", exception) }
+        //endregion
+
+        //하단 바
+        Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
     }
 
     private fun signOut() { // 로그아웃

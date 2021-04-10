@@ -37,17 +37,17 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
 
         fun bindViewHolder(item: MedicalConfirmDTO) {
             //데이터 바인딩(item_list-파이어베이스)
-            view.date.text = item.date
-            view.surgery.text = item.surgery
+            view.txt_subtitle.text = item.surgery_date
+            view.surgery.text = item.diagnosis //surgery
             view.doctor.text = item.doctor_name
-            view.hospital.text = item.hospital_name
+            view.hospital.text = item.hospital //hospital_name
 
             //region 리사이클러뷰 클릭이벤트
             //의료진확인
             if (layout_id == R.layout.activity_staff_vali){
                 itemView.setOnClickListener {
                     val intent = Intent(it.context, StaffVali_1_Activity::class.java)
-                    intent.putExtra("voice_path", item.voice_path)
+                    intent.putExtra("voice_path", item.voice_path) //voice_path
                     intent.putExtra("doctor_id", item.doctor_id)
                     ContextCompat.startActivity(it.context, intent, null)
                 }
@@ -56,6 +56,7 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
             else if (layout_id == R.layout.activity_records_vali){
                 itemView.setOnClickListener {
                     val intent = Intent(it.context, Records_Vali_1_Activity::class.java)
+                    intent.putExtra("item", item)
                     ContextCompat.startActivity(it.context, intent, null)
                 }
             }

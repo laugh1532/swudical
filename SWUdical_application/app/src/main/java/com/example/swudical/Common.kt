@@ -1,18 +1,27 @@
 package com.example.swudical
 
+import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swudical.DTO.MedicalConfirmDTO
+import com.example.swudical.DTO.UserInfoDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_records_vali.*
 
 
 class Common {
     companion object{ //=static
+
+
         //region 진료기록 조회함수
-        fun ReadMedicalConfirm(rv_medicalList: RecyclerView, layout_id: Int){
+        fun ReadMedicalConfirm(rv_medicalList: RecyclerView, layout_id: Int, context: Context){
             val firestore = FirebaseFirestore.getInstance()
             val user = FirebaseAuth.getInstance()
             val uid = user.currentUser?.uid.toString()
@@ -32,6 +41,10 @@ class Common {
                     //리사이클러뷰 어댑터 연결
                     val adapter = RecyclerViewAdapter(medicalList, layout_id)
                     rv_medicalList.adapter = adapter
+
+                    val dividerItemDecoration = DividerItemDecoration(rv_medicalList.getContext(),
+                        LinearLayoutManager(context).orientation)
+                    rv_medicalList.addItemDecoration(dividerItemDecoration)
                 }
         }
         //endregion
@@ -57,6 +70,11 @@ class Common {
             }
         }
         //endregion
+
+        //region 서브타이틀 불러오기
+
+        //endregion
+
     }
 
 }

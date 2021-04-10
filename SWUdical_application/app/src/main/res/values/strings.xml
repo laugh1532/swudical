@@ -4,5 +4,11 @@
     <string name="recordsvali_string">슈디컬에서는 환자분께서 진행하신 모든 진료 기록을 한 눈에 확인하실 수 있습니다. 진료 기록 확인서를 조회할 행을 선택하세요. </string>
     <string name="facebook_app_id">2550499188578087</string> <string name="fb_login_protocol_scheme">fb2550499188578087</string>
     <string name="userinfo"> 슈디컬 어플 이용을 위한 개인 정보를 입력해주세요. 어플 내 본인 확인용 이외에는 사용되지 않습니다. </string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 
 </resources>
