@@ -107,10 +107,11 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
                 if(firebaseAuth.currentUser !=null) { // 현재 firebaseAuth로 로그인 한 사용자
+                    val basicNotice = "\'EDIT\'을 눌러주세요!"
                     db.collection("user_info").document(uid).get()
                         .addOnSuccessListener { res->
                             val userInfoDTO = res.toObject(UserInfoDTO::class.java)
-                            if(userInfoDTO?.name==null) { // 이름 필드가 비었을 때 = 처음 로그인 -> 개인 정보 입력
+                            if(userInfoDTO?.name==basicNotice) { // 이름 필드가 비었을 때 = 처음 로그인 -> 개인 정보 입력
                                 if (res.exists()) {
                                     startActivity(Intent(this, UserInfoActivity::class.java))
                                 }
@@ -146,14 +147,17 @@ class MainActivity : AppCompatActivity() {
         val credential = FacebookAuthProvider.getCredential(token?.token!!)
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "LOGIN SUCCEED")
+                if(firebaseAuth.currentUser !=null) { // 현재 firebaseAuth로 로그인 한 사용자
+                    val basicNotice = "\'EDIT\'을 눌러주세요!"
                     db.collection("user_info").document(uid).get()
                         .addOnSuccessListener { res->
-                            if(res.exists()) { // 로그온 한 이력이 있는 계정
+                            val userInfoDTO = res.toObject(UserInfoDTO::class.java)
+                            if(userInfoDTO?.name==basicNotice) { // 이름 필드가 비었을 때 = 처음 로그인 -> 개인 정보 입력
+                                if (res.exists()) {
+                                    startActivity(Intent(this, UserInfoActivity::class.java))
+                                }
+                            }else{ // 처음 로그인이 아닐 때 -> 진료기록 확인
                                 startActivity(Intent(this, RecordsValiActivity::class.java))
-                            }else{
-                                startActivity(Intent(this, UserInfoActivity::class.java))
                             }
                         }
                     finish()

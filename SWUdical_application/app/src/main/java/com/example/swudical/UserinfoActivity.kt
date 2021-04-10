@@ -11,10 +11,6 @@ import com.example.swudical.DTO.UserInfoDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_userinfo.*
-import android.content.Context
-import android.content.SharedPreferences
-import android.provider.ContactsContract
-import android.view.contentcapture.DataShareRequest
 
 class UserInfoActivity : AppCompatActivity() {
 
@@ -31,7 +27,7 @@ class UserInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_userinfo)
 
         //region 컴포넌트
-        et_email = findViewById(R.id.editTextTextEmailAddress)
+        et_email = findViewById(R.id.userinfo_email)
         et_name = findViewById(R.id.userinfo_name)
         et_birthday = findViewById(R.id.userinfo_birth)
         et_sex = findViewById(R.id.userinfo_sex)

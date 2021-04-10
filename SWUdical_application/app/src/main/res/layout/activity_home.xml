@@ -131,7 +131,6 @@
         android:layout_marginTop="28dp"
         android:fontFamily="@font/nanumbarunb"
         android:gravity="center|left"
-        android:text="\'EDIT\'을 눌러주세요!"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,12 +152,11 @@
         app:srcCompat="@drawable/ic_baseline_mail_24" />
 
     <TextView
-        android:id="@+id/home_name"
+            android:id="@+id/home_name"
         android:layout_width="230dp"
         android:layout_height="55dp"
         android:fontFamily="@font/nanumbarunb"
         android:gravity="center|left"
-        android:text="\'EDIT\'을 눌러주세요!"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -200,7 +198,6 @@
         android:layout_marginTop="44dp"
         android:fontFamily="@font/nanumbarunb"
         android:gravity="center|left"
-        android:text="\'EDIT\'을 눌러주세요!"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

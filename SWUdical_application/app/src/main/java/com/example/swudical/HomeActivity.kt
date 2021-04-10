@@ -49,7 +49,13 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        //endregion
+        // endregion
+
+        // 기본값
+        val basicNotice = "\'EDIT\'을 눌러주세요!"
+        home_name.text = basicNotice
+        home_id.text = basicNotice
+        home_mail.text = basicNotice
 
         //region 편집 버튼
         editinfobtn.setOnClickListener{
