@@ -7,6 +7,15 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+//    viewBinding {
+//        enabled = true
+//    }
+
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId "com.example.swudical"
         minSdkVersion 26
@@ -133,7 +142,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
     implementation "org.jetbrains.anko:anko:$anko_version"
-    compileOnly 'com.google.android.wearable:wearable:2.6.0'
+    compileOnly 'com.google.android.wearable:wearable:2.8.1'
 }
+
 
 //apply plugin: 'com.google.gms.google-services'

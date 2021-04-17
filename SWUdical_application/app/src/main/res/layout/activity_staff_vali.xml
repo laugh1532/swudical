@@ -9,18 +9,22 @@
     <!--    표-->
     <!--    하단바-->
 
+    <!--    슈디컬에서는~ -->
+    <!--    의료진 확인하기 1 -->
+    <!--    김슈니님의 수술실 -->
+
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:layout_marginBottom="80dp"
-        android:fontFamily="@font/jalnan"
+        android:fontFamily="@font/nanumsquare_aceb"
         android:textColor="@color/mainPurple"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/txt_contents"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="김슈니님의 수술실" />
@@ -29,28 +33,24 @@
         android:id="@+id/txt_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/jalnan"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/nanumsquare_aceb"
         android:text="의료진 확인하기"
         android:textColor="@color/mainBlack"
-        android:textSize="47dp"
+        android:textSize="55sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title" />
-
-    <!--    슈디컬에서는~ -->
-    <!--    의료진 확인하기 1 -->
-    <!--    김슈니님의 수술실 -->
 
     <TextView
         android:id="@+id/txt_contents"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="23dp"
-        android:fontFamily="@font/nanumbarunb"
+        android:fontFamily="@font/nanumsquare_acl"
         android:text="@string/staffvali_string"
-        android:textSize="18sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
@@ -65,6 +65,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_contents"
         tools:listitem="@layout/item_list" />
@@ -86,7 +87,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_rcdvali"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
             android:text="진료기록 확인"
             android:textColor="@color/mainBlack"
@@ -99,7 +100,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_staffvali"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
             android:text="의료진 확인"
             android:textColor="@color/mainBlack"
@@ -112,7 +113,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_home"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
             android:text="마이 페이지"
             android:textColor="@color/mainBlack"

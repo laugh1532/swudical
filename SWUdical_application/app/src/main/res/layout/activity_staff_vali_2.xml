@@ -8,12 +8,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_medicalList">
 
         <TextView
             android:id="@+id/btn_rcdvali"
@@ -22,7 +23,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_rcdvali"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
             android:text="진료기록 확인"
             android:textColor="@color/mainBlack"
@@ -35,7 +36,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_staffvali"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
             android:text="의료진 확인"
             android:textColor="@color/mainBlack"
@@ -48,7 +49,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_home"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/nanumbarunb"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
             android:text="마이 페이지"
             android:textColor="@color/mainBlack"
@@ -101,15 +102,15 @@
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-31dp"
-        tools:layout_editor_absoluteY="128dp" />
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="275dp" />
 
     <TextView
         android:id="@+id/txt_contents"
         android:layout_width="349dp"
         android:layout_height="74dp"
         android:layout_marginBottom="48dp"
-        android:fontFamily="@font/nanumbarunb"
+        android:fontFamily="@font/nanumsquare_acb"
         android:text="선택하신 '00병원 - 나의사' 집도의의 화자 인식 결과를 확인합니다."
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
