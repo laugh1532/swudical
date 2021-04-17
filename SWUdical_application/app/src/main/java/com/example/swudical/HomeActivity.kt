@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
 
-
 class HomeActivity : AppCompatActivity() {
     private val GET_GALLERY_IMAGE = 200
     private var imageview: ImageView? = null
@@ -96,11 +95,16 @@ class HomeActivity : AppCompatActivity() {
                 Log.w("ERR", "err getting documents: ", exception) }
         //endregion
 
-        //하단 바
-        Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
+        //region 편집 버튼
+        editinfobtn.setOnClickListener{
+            val intent = Intent(this, UserInfoActivity::class.java)
+            intent.putExtra("extra_name", home_name.toString())
+            startActivity(intent)
+        }
 
-        //region 로그아웃 버튼
-        if(FirebaseAuth.getInstance().currentUser!=null){
+        Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)         //하단 바
+
+        if(FirebaseAuth.getInstance().currentUser!=null){        //region 로그아웃 버튼
             logoutbtn.setOnClickListener{
                 signOut()
                 val t1 = Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT)
@@ -113,27 +117,16 @@ class HomeActivity : AppCompatActivity() {
                 finish()
             }
         }
-        // endregion
-
-        //region 편집 버튼
-        editinfobtn.setOnClickListener{
-            val intent = Intent(this, UserInfoActivity::class.java)
-            startActivity(intent)
-        }
-        //endregion
     }
-
     private fun signOut() { // 로그아웃
         firebaseAuth.signOut()
         FirebaseAuth.getInstance().signOut()
         googleSignInClient.signOut()
-
         // facebook
         if(AccessToken.getCurrentAccessToken()!=null){
             LoginManager.getInstance().logOut()
         }
     }
-
     override fun onBackPressed() {
         val intent = Intent(this, RecordsValiActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

@@ -1,5 +1,7 @@
 package com.example.swudical.DTO
 
+import android.text.Editable
+
 data class UserInfoDTO (
     val name: String?=null,
     val email: String?=null,
