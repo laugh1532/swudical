@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="318dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="@string/userinfo"
         android:textSize="16sp"

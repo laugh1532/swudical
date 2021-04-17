@@ -60,48 +60,47 @@
 
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="266dp"
-        android:layout_height="46dp"
-        android:fontFamily="@font/jalnan"
-        android:text="김슈니님의 수술실"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/nanumsquare_aceb"
         android:textColor="@color/mainPurple"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/txt_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.894" />
+        app:layout_constraintVertical_bias="0.971"
+        tools:text="김슈니님의 수술실" />
 
     <TextView
         android:id="@+id/txt_subtitle"
-        android:layout_width="345dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/jalnan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/nanumsquare_aceb"
         android:text="의료진 확인하기"
         android:textColor="@color/mainBlack"
-        android:textSize="47dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/txt_contents"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
     <TextView
         android:id="@+id/txt_contents"
-        android:layout_width="349dp"
-        android:layout_height="74dp"
-        android:fontFamily="@font/nanumbarunb"
+        android:layout_width="341dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/nanumsquare_acl"
         android:text="선택하신 '00병원 - 나의사' 집도의의 화자 인식 결과를 확인합니다."
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="177dp"
         app:layout_constraintBottom_toTopOf="@+id/chart"
-         />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/test"
@@ -112,15 +111,18 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chart" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginEnd="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/test"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginTop="240dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ class Records_Vali_1_Activity : AppCompatActivity() {
 
         val item:MedicalConfirmDTO = intent.getSerializableExtra("item") as MedicalConfirmDTO
 
+
         dept.text = item.dept
         writer.text = item.writer
         diag_num.text = item.diag_num.toString()
