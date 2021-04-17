@@ -90,9 +90,9 @@ class StaffVali_1_Activity : AppCompatActivity() {
                 }
             }
             // 그래프 변환을 위한 소수점 변환
-            f_max = max.toFloat()
-            s_max = second_max.toFloat()
-            t_max = third_max.toFloat()
+            val f_max = max.toFloat()
+            val s_max = second_max.toFloat()
+            val t_max = third_max.toFloat()
             // 정답 일치.toString 지웠
             if(doctor_id == index.toString()){
                 test.text = "일치"
@@ -160,8 +160,9 @@ class StaffVali_1_Activity : AppCompatActivity() {
     //endregion
 
     override fun onBackPressed() {
-        startActivity(Intent(this, StaffValiActivity::class.java))
+        val intent = Intent(this, StaffValiActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
         finish()
     }
 }

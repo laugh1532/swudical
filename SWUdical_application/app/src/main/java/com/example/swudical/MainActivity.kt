@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.swudical.DTO.UserInfoDTO
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -26,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_main.*
+import org.bytedeco.librealsense.context
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -108,7 +110,8 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
                 if(firebaseAuth.currentUser !=null) { // 현재 firebaseAuth로 로그인 한 사용자
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    startActivity(Intent(this, RecordsValiActivity::class.java))
+
 //                    val basicNotice = "\'EDIT\'을 눌러주세요!"
 //                    db.collection("user_info").document(uid).get()
 //                        .addOnSuccessListener { res->
@@ -150,7 +153,7 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if(firebaseAuth.currentUser !=null) { // 현재 firebaseAuth로 로그인 한 사용자
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    startActivity(Intent(this, RecordsValiActivity::class.java))
 //                    val basicNotice = "\'EDIT\'을 눌러주세요!"
 //                    db.collection("user_info").document(uid).get()
 //                        .addOnSuccessListener { res->

@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.swudical.DTO.UserInfoDTO
 import com.facebook.AccessToken
 import com.facebook.login.LoginManager
@@ -62,11 +63,6 @@ class HomeActivity : AppCompatActivity() {
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
-
-                if(userInfoDTO?.name==null || userInfoDTO.sex ==null || userInfoDTO.email ==null || userInfoDTO.birthday ==null){
-                    val intent = Intent(this, UserInfoActivity::class.java)
-                    startActivity(intent)
-                }
 
                 if(userInfoDTO?.name!=null) {
                     home_name.text = userInfoDTO.name

@@ -48,7 +48,7 @@ class StaffValiActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        var intent = Intent(this, RecordsValiActivity::class.java)
+        val intent = Intent(this, RecordsValiActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()

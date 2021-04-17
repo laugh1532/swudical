@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.swudical.DTO.UserInfoDTO
@@ -33,6 +34,12 @@ class RecordsValiActivity : AppCompatActivity() {
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+
+                if(userInfoDTO?.name==null || userInfoDTO.sex ==null || userInfoDTO.email ==null || userInfoDTO.birthday ==null){
+                    val intent = Intent(this, UserInfoActivity::class.java)
+                    intent.putExtra("where", "main")
+                    ContextCompat.startActivity(this, intent, null)
+                }
 
                 if (userInfoDTO != null) {
                     txt_title.text = userInfoDTO.name.toString() + "님의 수술실"
