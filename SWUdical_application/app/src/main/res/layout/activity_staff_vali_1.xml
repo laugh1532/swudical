@@ -72,7 +72,7 @@
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.971"
+        app:layout_constraintVertical_bias="1.0"
         tools:text="김슈니님의 수술실" />
 
     <TextView
@@ -91,15 +91,15 @@
 
     <TextView
         android:id="@+id/txt_contents"
-        android:layout_width="341dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="358dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="60dp"
         android:fontFamily="@font/nanumsquare_acl"
-        android:text="선택하신 '00병원 - 나의사' 집도의의 화자 인식 결과를 확인합니다."
+        android:text="선택하신 진료 기록의 화자 인식 결과를 확인합니다."
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/chart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -116,9 +116,9 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="240dp"
+        android:layout_width="310dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
