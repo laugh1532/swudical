@@ -15,6 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_records_vali.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class Common {
@@ -30,7 +32,9 @@ class Common {
             firestore.collection("medical_confirmation")
                 .whereNotEqualTo( if(layout_id == R.layout.activity_staff_vali) "voice_path" else "user_id", "")
                 .whereEqualTo("user_id", uid)
-                //.orderBy("date", Query.Direction.DESCENDING)
+//                .orderBy("user_id")    //surgery_date 정렬하려면 필요
+//                .orderBy("voice_path") //surgery_date 정렬하려면 필요
+//                .orderBy("surgery_date", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener { result ->
                     var medicalConfirmDTO: MedicalConfirmDTO
@@ -39,6 +43,8 @@ class Common {
                         medicalConfirmDTO = document.toObject(MedicalConfirmDTO::class.java)
                         medicalList.add(medicalConfirmDTO)
                     }
+
+                    medicalList.sortDescending() //surgery_date 내림차순 정렬
 
                     //리사이클러뷰 어댑터 연결
                     val adapter = RecyclerViewAdapter(medicalList, layout_id)

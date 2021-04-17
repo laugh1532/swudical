@@ -40,12 +40,6 @@ class HomeActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // 사용자정보 기본값
-        val basicNotice = "\'EDIT\'을 눌러주세요!"
-        home_name.text = basicNotice
-        home_id.text = basicNotice
-        home_mail.text = basicNotice
-
         //region 사진 업로드
         imageview = findViewById<View>(R.id.imageView3) as ImageView
         imageview!!.setOnClickListener {

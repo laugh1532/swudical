@@ -5,8 +5,10 @@
     android:id="@+id/layout"
     android:layout_width="378dp"
     android:layout_height="70dp"
+    android:defaultFocusHighlightEnabled="true"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="?attr/selectableItemBackground"
     tools:context=".MainActivity">
 
     <LinearLayout
