@@ -3,6 +3,9 @@
     <color name="mainPink">#FF7B79</color>
     <color name="mainGreen">#D8EC84</color>
     <color name="mainBlack">#404040</color>
-    <color name="mainPurple">#C4A2FC</color>
+    <color name="mainPurple">#8276F4</color>
+    <color name="subPurple1">#AF8EFF</color>
+    <color name="subPurple2">#E1DDFE</color>
     <color name="mainNavy">#151A6A</color>
+    <color name="mainWhite">#FFFFFF</color>
 </resources>

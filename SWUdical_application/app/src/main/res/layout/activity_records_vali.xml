@@ -17,69 +17,68 @@
         android:id="@+id/txt_contents"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="@font/notosanskrlight"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/nanumsquare_acl"
         android:includeFontPadding="false"
         android:text="@string/recordsvali_string"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_subtitle" />
-
-    <TextView
-        android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:fontFamily="@font/notosanskrblack"
-        android:includeFontPadding="false"
-        android:textColor="@color/mainPurple"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_subtitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="김슈니님의 수술실" />
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txt_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:fontFamily="@font/notosanskrblack"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/nanumsquare_aceb"
         android:includeFontPadding="false"
         android:text="진료기록 확인하기"
         android:textColor="@color/mainBlack"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/txt_contents"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/nanumsquare_aceb"
+        android:includeFontPadding="false"
+        android:textColor="@color/mainPurple"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="김슈니님의 수술실" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_medicalList"
-        android:layout_width="350dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="343dp"
+        android:layout_height="427dp"
+        android:layout_marginTop="228dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_contents"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_list" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_medicalList">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/btn_rcdvali"
@@ -88,9 +87,8 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_rcdvali"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/notosanskrregular"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
-            android:includeFontPadding="false"
             android:text="진료기록 확인"
             android:textColor="@color/mainBlack"
             android:textSize="15sp" />
@@ -102,9 +100,8 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_staffvali"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/notosanskrregular"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
-            android:includeFontPadding="false"
             android:text="의료진 확인"
             android:textColor="@color/mainBlack"
             android:textSize="15sp" />
@@ -116,14 +113,25 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/imgbtn_home"
             android:drawablePadding="0dp"
-            android:fontFamily="@font/notosanskrregular"
+            android:fontFamily="@font/nanumsquare_acl"
             android:gravity="center"
-            android:includeFontPadding="false"
             android:text="마이 페이지"
             android:textColor="@color/mainBlack"
             android:textSize="15sp" />
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013"
+        app:srcCompat="@drawable/logo_n" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

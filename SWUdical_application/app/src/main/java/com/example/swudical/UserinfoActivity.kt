@@ -22,10 +22,27 @@ class UserInfoActivity : AppCompatActivity() {
 
     val user = FirebaseAuth.getInstance().currentUser
     val db = FirebaseFirestore.getInstance()
+    val uid = user?.uid.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_userinfo)
+
+        db.collection("user_info").document(uid)
+            .get().addOnSuccessListener { result ->
+                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+
+                if (userInfoDTO?.name != null) {
+                    userinfo_name.setText(userInfoDTO.name)
+                }
+                if (userInfoDTO?.email != null) {
+                    userinfo_email.setText(userInfoDTO.email)
+                }
+                if (userInfoDTO?.birthday != null) {
+                    userinfo_birth.setText(userInfoDTO.birthday)
+                    userinfo_sex.setText(userInfoDTO.sex)
+                }
+            }
 
         //region 컴포넌트
         et_email = findViewById(R.id.userinfo_email)

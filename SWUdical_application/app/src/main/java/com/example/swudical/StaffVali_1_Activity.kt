@@ -37,15 +37,13 @@ class StaffVali_1_Activity : AppCompatActivity() {
         val voice_path = intent.getStringExtra("voice_path")
         val doctor_id = intent.getStringExtra("doctor_id")
 
+        val ONE_MEGABYTE: Long = 1024 * 1024
+        val tflite = getTfliteInterpreter("model40.tflite") //모델 불러오기
+
         //region 화자인식
         val storage = Firebase.storage("gs://swudical.appspot.com")
         val storageRef: StorageReference = storage.reference
         val pathReference = storageRef.child(voice_path!!)
-
-        val ONE_MEGABYTE: Long = 1024 * 1024
-
-        val tflite = getTfliteInterpreter("model40.tflite") //모델 불러오기
-        
         pathReference.getBytes(ONE_MEGABYTE).addOnSuccessListener {
 
             val firebaseData = Nd4j.createNpyFromByteArray(it) //firebase에서 .npy 받아오기
