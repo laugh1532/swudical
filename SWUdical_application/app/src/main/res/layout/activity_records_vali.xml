@@ -17,13 +17,14 @@
         android:id="@+id/txt_contents"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/notosanskrlight"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/nanumsquare_acl"
         android:includeFontPadding="false"
         android:text="@string/recordsvali_string"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -61,9 +62,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_medicalList"
-        android:layout_width="360dp"
-        android:layout_height="420dp"
-        android:layout_marginTop="240dp"
+        android:layout_width="343dp"
+        android:layout_height="427dp"
+        android:layout_marginTop="228dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,5 +121,17 @@
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013"
+        app:srcCompat="@drawable/logo_n" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

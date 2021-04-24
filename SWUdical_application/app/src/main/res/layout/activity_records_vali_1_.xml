@@ -5,19 +5,29 @@
     android:id="@+id/txt_subtitle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Records_Vali_1_Activity">
+    tools:context=".Records_Vali_1_Activity" >
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007"
+        app:srcCompat="@drawable/logo_n" />
 
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="373dp"
-        android:layout_height="686dp"
+        android:layout_width="387dp"
+        android:layout_height="693dp"
         android:columnCount="6"
         android:orientation="horizontal"
         android:rowCount="25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/textView15"
@@ -29,7 +39,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="진료확인서"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView16"
@@ -40,7 +50,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="부서명"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/dept"
@@ -50,7 +60,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView18"
@@ -61,7 +71,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="작성자"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/writer"
@@ -71,7 +81,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView20"
@@ -82,7 +92,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="작성일자"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/write_date"
@@ -92,7 +102,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView44"
@@ -102,7 +112,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="진료번호"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/diag_num"
@@ -112,7 +122,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView40"
@@ -123,7 +133,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="성명"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/name"
@@ -133,7 +143,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView39"
@@ -144,7 +154,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="성별"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/sex"
@@ -154,7 +164,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView43"
@@ -165,7 +175,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="연령"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/age"
@@ -175,7 +185,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView23"
@@ -186,7 +196,8 @@
             android:gravity="center"
             android:text="주민등록번호"
             android:textColor="#000000"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
         <TextView
             android:id="@+id/regident_num"
@@ -196,7 +207,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView25"
@@ -206,7 +217,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="전화번호"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/tel"
@@ -216,7 +227,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView27"
@@ -227,7 +238,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="주소"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/address"
@@ -237,7 +248,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView29"
@@ -249,7 +260,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="질병명"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/diagnosis"
@@ -260,7 +271,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView31"
@@ -271,7 +282,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="진료기간"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/treatment_period"
@@ -281,7 +292,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView33"
@@ -293,7 +304,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="진료내용"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/content"
@@ -304,7 +315,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView9"
@@ -315,7 +326,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="위 진료 대상자에 대하여 위와 같이 진료하였음을 확인합니다."
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView36"
@@ -326,7 +337,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="의료기관명"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/hospital_name"
@@ -336,7 +347,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView46"
@@ -347,7 +358,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="의사면허번호"
-            android:textColor="#000000"
+            android:textColor="@color/mainBlack"
             android:textSize="14sp" />
 
         <TextView
@@ -358,7 +369,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/textView48"
@@ -369,7 +380,7 @@
             android:background="@drawable/table_inside"
             android:gravity="center"
             android:text="담당의사"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
         <TextView
             android:id="@+id/doctor_name"
@@ -379,7 +390,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
             android:gravity="center"
-            android:textColor="#000000" />
+            android:textColor="@color/mainBlack" />
 
 
     </GridLayout>

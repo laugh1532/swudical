@@ -67,146 +67,144 @@
     <!--    수정-->
 
     <ImageView
+        android:id="@+id/userinfo_logo1"
+        android:layout_width="315dp"
+        android:layout_height="78dp"
+        android:contentDescription="TODO"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059"
+        app:srcCompat="@drawable/logo_n" />
+
+    <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="187dp"
-        android:layout_height="176dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="28dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221"
-        app:srcCompat="@drawable/img_profile" />
+        app:layout_constraintVertical_bias="0.215"
+        app:srcCompat="@drawable/profile_n" />
 
     <Button
         android:id="@+id/editinfobtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:background="#EAE3F6"
+        android:background="@drawable/button2_design"
         android:fontFamily="@font/nanumsquare_acb"
         android:text="EDIT"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
+
+        android:textColor="@color/mainPurple"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintHorizontal_bias="0.803"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.198" />
 
     <Button
         android:id="@+id/logoutbtn"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:background="#EAE3F6"
+        android:background="@drawable/button2_design2"
         android:fontFamily="@font/nanumsquare_acb"
         android:text="LOGOUT"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
+        android:textColor="@color/mainWhite"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintHorizontal_bias="0.803"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.292" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="122dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072"
-        app:srcCompat="@drawable/swudical_logo" />
 
     <TextView
         android:id="@+id/home_mail"
         android:layout_width="230dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="28dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="48dp"
         android:fontFamily="@font/nanumsquare_acr"
-        android:gravity="center|left"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center|center_horizontal|left"
+        android:textAlignment="textStart"
+        android:textColor="@color/mainBlack"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_id"
-        app:layout_constraintVertical_bias="0.106" />
+        tools:ignore="RtlCompat" />
 
     <ImageView
         android:id="@+id/icon_mail"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toStartOf="@+id/home_mail"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_id"
-        app:layout_constraintVertical_bias="0.216"
         app:srcCompat="@drawable/ic_baseline_mail_24" />
 
     <TextView
         android:id="@+id/home_name"
         android:layout_width="230dp"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="48dp"
         android:fontFamily="@font/nanumsquare_acr"
-        android:gravity="center|left"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center|center_horizontal|left"
+        android:textAlignment="textStart"
+        android:textColor="@color/mainBlack"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintTop_toBottomOf="@+id/logoutbtn" />
 
     <ImageView
         android:id="@+id/icon_id"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toStartOf="@+id/home_id"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_name"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_baseline_assignment_ind_24" />
 
     <ImageView
         android:id="@+id/icon_name"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="92dp"
         app:layout_constraintEnd_toStartOf="@+id/home_name"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449"
+        app:layout_constraintTop_toBottomOf="@+id/logoutbtn"
         app:srcCompat="@drawable/ic_baseline_face_24" />
 
     <TextView
         android:id="@+id/home_id"
         android:layout_width="230dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="44dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="48dp"
         android:fontFamily="@font/nanumsquare_acr"
-        android:gravity="center|left"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center|right|center_horizontal"
+        android:textAlignment="textStart"
+        android:textColor="@color/mainBlack"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_name"
-        app:layout_constraintVertical_bias="0.011" />
+        tools:ignore="RtlCompat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

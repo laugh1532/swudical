@@ -58,22 +58,31 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/nanumsquare_aceb"
-        android:textColor="@color/mainPurple"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_subtitle"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:text="김슈니님의 수술실" />
+        app:layout_constraintVertical_bias="0.013"
+        app:srcCompat="@drawable/logo_n" />
+
+    <TextView
+        android:id="@+id/txt_contents"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/nanumsquare_acl"
+        android:includeFontPadding="false"
+        android:text="선택하신 진료 기록의 화자 인식 결과를 확인합니다."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/chart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txt_subtitle"
@@ -81,26 +90,32 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/nanumsquare_aceb"
+        android:includeFontPadding="false"
         android:text="의료진 확인하기"
         android:textColor="@color/mainBlack"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/txt_contents"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txt_contents"
-        android:layout_width="358dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="60dp"
-        android:fontFamily="@font/nanumsquare_acl"
-        android:text="선택하신 진료 기록의 화자 인식 결과를 확인합니다."
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/chart"
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/nanumsquare_aceb"
+        android:includeFontPadding="false"
+        android:textColor="@color/mainPurple"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="김슈니님의 수술실" />
 
     <TextView
         android:id="@+id/test"
@@ -118,7 +133,7 @@
         android:id="@+id/chart"
         android:layout_width="310dp"
         android:layout_height="400dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
