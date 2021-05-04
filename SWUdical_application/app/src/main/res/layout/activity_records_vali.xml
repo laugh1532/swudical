@@ -62,12 +62,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_medicalList"
-        android:layout_width="398dp"
-        android:layout_height="418dp"
+        android:layout_width="343dp"
+        android:layout_height="427dp"
         android:layout_marginTop="228dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_list" />

@@ -32,7 +32,6 @@
         </activity>
         <activity android:name=".UserInfoActivity"/>
         <activity android:name=".Records_Vali_1_Activity"/>
-        <activity android:name=".StaffVali_2_Activity" />
         <activity android:name=".StaffVali_1_Activity" />
         <activity android:name=".RecordsValiActivity" />
         <activity android:name=".StaffValiActivity" />

@@ -51,14 +51,23 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // 페이스북 로그인 버튼 설정
-        // var -> val로 수정함 0306 20:48
+
         val facebookButton = findViewById<Button>(R.id.login_button)
+        val newfacebookButton = findViewById<Button>(R.id.new_login_button)
+
         facebookButton.setOnClickListener { facebookLogin() }
+        newfacebookButton.setOnClickListener{
+            facebookButton.performClick()
+        }
+
         callbackManager = CallbackManager.Factory.create()
 
-        // google_sign_btn.setOnClickListener (this) // 구글 로그인 버튼
-        google_sign_btn.setOnClickListener {signIn()}
+        val newgoogleButton = findViewById<Button>(R.id.new_google_sign_btn)
+
+        // google_sign_btn.setOnClickListener {signIn()}
+        newgoogleButton.setOnClickListener{
+            signIn()
+        }
         //Google 로그인 옵션 구성. requestIdToken 및 Email 요청
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -111,19 +120,6 @@ class MainActivity : AppCompatActivity() {
                 Log.w("MainActivity", "firebaseAuthWithGoogle 성공", task.exception)
                 if(firebaseAuth.currentUser !=null) { // 현재 firebaseAuth로 로그인 한 사용자
                     startActivity(Intent(this, RecordsValiActivity::class.java))
-
-//                    val basicNotice = "\'EDIT\'을 눌러주세요!"
-//                    db.collection("user_info").document(uid).get()
-//                        .addOnSuccessListener { res->
-//                            val userInfoDTO = res.toObject(UserInfoDTO::class.java)
-//                            if(userInfoDTO?.name==basicNotice) { // 이름 필드가 비었을 때 = 처음 로그인 -> 개인 정보 입력
-//                                if (res.exists()) {
-//                                    startActivity(Intent(this, UserInfoActivity::class.java))
-//                                }
-//                            }else{ // 처음 로그인이 아닐 때 -> 진료기록 확인
-//                                startActivity(Intent(this, RecordsValiActivity::class.java))
-//                            }
-//                        }
                     finish()
                 }
             } else {
@@ -154,25 +150,12 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if(firebaseAuth.currentUser !=null) { // 현재 firebaseAuth로 로그인 한 사용자
                     startActivity(Intent(this, RecordsValiActivity::class.java))
-//                    val basicNotice = "\'EDIT\'을 눌러주세요!"
-//                    db.collection("user_info").document(uid).get()
-//                        .addOnSuccessListener { res->
-//                            val userInfoDTO = res.toObject(UserInfoDTO::class.java)
-//                            if(userInfoDTO?.name==basicNotice) { // 이름 필드가 비었을 때 = 처음 로그인 -> 개인 정보 입력
-//                                if (res.exists()) {
-//                                    startActivity(Intent(this, UserInfoActivity::class.java))
-//                                }
-//                            }else{ // 처음 로그인이 아닐 때 -> 진료기록 확인
-//                                startActivity(Intent(this, RecordsValiActivity::class.java))
-//                            }
-//                        }
                     finish()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                 }
             }
     }
-
 
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
@@ -195,4 +178,6 @@ class MainActivity : AppCompatActivity() {
             exitProcess(0)
         }
     }
+
+
 }
