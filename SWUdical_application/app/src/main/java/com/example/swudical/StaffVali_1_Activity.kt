@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
 import kotlinx.android.synthetic.main.activity_home.btn_staffvali
 import kotlinx.android.synthetic.main.activity_staff_vali_1.*
 import kotlinx.android.synthetic.main.activity_staff_vali_1.chart
-import kotlinx.android.synthetic.main.activity_staff_vali_2.*
 import org.nd4j.linalg.factory.Nd4j
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
