@@ -2,31 +2,34 @@ package com.example.swudical
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.swudical.DTO.UserInfoDTO
+import com.facebook.appevents.internal.AppEventUtility.bytesToHex
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.btn_home
 import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
 import kotlinx.android.synthetic.main.activity_home.btn_staffvali
 import kotlinx.android.synthetic.main.activity_records_vali.rv_medicalList
 import kotlinx.android.synthetic.main.activity_staff_vali.*
+import kotlinx.android.synthetic.main.item_list.*
+import java.security.DigestException
+import java.security.MessageDigest
 import kotlin.system.exitProcess
 
 class RecordsValiActivity : AppCompatActivity() {
-
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_records_vali)
 
-        //OO님의 수술실
+        //region 수술실 이름 가져오기
         val user = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
         val uid = user.currentUser?.uid.toString()
@@ -34,6 +37,24 @@ class RecordsValiActivity : AppCompatActivity() {
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+
+                //region 해시값 테스트
+                val directDTOtoString = userInfoDTO.toString()
+
+                Log.d("DTO로 받고 toStirng", directDTOtoString)
+
+                val hash: ByteArray
+                try {
+                    val msg = directDTOtoString
+                    val md = MessageDigest.getInstance("SHA-256")
+                    md.update(msg.toByteArray())
+                    hash = md.digest()
+                    val result = bytesToHex(hash)
+                    Log.d("hash", result)
+                } catch (e: CloneNotSupportedException) {
+                    throw DigestException("couldn't make digest of partial content");
+                }
+                //endregion
 
                 if(userInfoDTO?.name==null || userInfoDTO.sex ==null || userInfoDTO.email ==null || userInfoDTO.birthday ==null){
                     val intent = Intent(this, UserInfoActivity::class.java)
@@ -51,12 +72,14 @@ class RecordsValiActivity : AppCompatActivity() {
             .addOnFailureListener() { exception ->
                 Log.w("ERR", "err getting documents: ", exception)
             }
+        //endregion
 
         //진료기록 조회
         Common.ReadMedicalConfirm(rv_medicalList, R.layout.activity_records_vali, this)
 
         //하단 바
         Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
+
     }
 
 
@@ -65,7 +88,7 @@ class RecordsValiActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         // 뒤로가기 버튼 클릭
-        if(System.currentTimeMillis() - mBackWait >=2000 ) {
+        if(System.currentTimeMillis() - mBackWait >= 2000 ) {
             mBackWait = System.currentTimeMillis()
             val t1 = Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT)
             t1.show()
