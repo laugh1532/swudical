@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlockchainListActivity">
+
+    <!--    김슈니님의 수술실 -->
+    <!--    진료기록 확인하기-->
+    <!--    슈디컬에서는~ -->
+    <!--    확인 가능 목록-->
+    <!--    표-->
+    <!--    하단바-->
+
+    <TextView
+        android:id="@+id/blocknumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="블록번호"
+        app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/hash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="해시값"
+        app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/txt_contents"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:fontFamily="@font/nanumsquare_acl"
+        android:includeFontPadding="false"
+        android:text="@string/blockchainlist_string"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_contents2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/nanumsquare_acl"
+        android:includeFontPadding="false"
+        android:text="@string/blockchainlist_string2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_contents" />
+
+    <TextView
+        android:id="@+id/txt_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/nanumsquare_aceb"
+        android:includeFontPadding="false"
+        android:text="해시값 상세보기"
+        android:textColor="@color/mainBlack"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_contents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/nanumsquare_aceb"
+        android:includeFontPadding="false"
+        android:textColor="@color/mainPurple"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="김슈니님의 수술실" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_medicalList"
+        android:layout_width="301dp"
+        android:layout_height="406dp"
+        android:layout_marginTop="240dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/blockchain_item_list" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/btn_rcdvali"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/imgbtn_rcdvali"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumsquare_acl"
+            android:gravity="center"
+            android:text="진료기록 확인"
+            android:textColor="@color/mainBlack"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/btn_staffvali"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/imgbtn_staffvali"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumsquare_acl"
+            android:gravity="center"
+            android:text="의료진 확인"
+            android:textColor="@color/mainBlack"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/btn_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/imgbtn_home"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumsquare_acl"
+            android:gravity="center"
+            android:text="마이 페이지"
+            android:textColor="@color/mainBlack"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+    ㄴ
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013"
+        app:srcCompat="@drawable/logo_n" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
