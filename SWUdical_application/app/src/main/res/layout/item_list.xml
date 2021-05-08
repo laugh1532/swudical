@@ -20,13 +20,13 @@
             android:id="@+id/imageView2"
             android:layout_width="20dp"
             android:layout_height="30dp"
-            app:srcCompat="@drawable/ic_date" />
+            app:srcCompat="@drawable/ic_date2" />
 
         <TextView
             android:id="@+id/txt_subtitle"
             android:layout_width="170dp"
             android:layout_height="match_parent"
-            android:fontFamily="@font/notosanskrregular"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center|left"
             android:includeFontPadding="false"
             android:paddingLeft="5dp"
@@ -40,13 +40,13 @@
             android:id="@+id/imageView4"
             android:layout_width="20dp"
             android:layout_height="30dp"
-            app:srcCompat="@drawable/ic_hospital" />
+            app:srcCompat="@drawable/ic_hospital2" />
 
         <TextView
             android:id="@+id/hospital"
             android:layout_width="170dp"
             android:layout_height="30dp"
-            android:fontFamily="@font/notosanskrregular"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center|left"
             android:includeFontPadding="false"
             android:paddingLeft="5dp"
@@ -66,13 +66,13 @@
             android:id="@+id/imageView5"
             android:layout_width="20dp"
             android:layout_height="30dp"
-            app:srcCompat="@drawable/ic_doctor" />
+            app:srcCompat="@drawable/ic_doctor2" />
 
         <TextView
             android:id="@+id/doctor"
             android:layout_width="170dp"
             android:layout_height="match_parent"
-            android:fontFamily="@font/notosanskrregular"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center|left"
             android:includeFontPadding="false"
             android:paddingLeft="5dp"
@@ -86,13 +86,13 @@
             android:id="@+id/imageView8"
             android:layout_width="20dp"
             android:layout_height="30dp"
-            app:srcCompat="@drawable/ic_diagnosis" />
+            app:srcCompat="@drawable/ic_diagnosis2" />
 
         <TextView
             android:id="@+id/surgery"
             android:layout_width="170dp"
             android:layout_height="30dp"
-            android:fontFamily="@font/notosanskrregular"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center|left"
             android:includeFontPadding="false"
             android:paddingLeft="5dp"

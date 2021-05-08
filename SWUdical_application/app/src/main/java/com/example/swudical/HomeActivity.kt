@@ -68,18 +68,30 @@ class HomeActivity : AppCompatActivity() {
                 val rangeYear = IntRange(0, 1)
                 val rangeMonth = IntRange(2, 3)
                 val rangeDay = IntRange(4, 5)
-                val birthday = birthdayFromDTO?.slice(rangeYear) + "년 " + birthdayFromDTO?.slice(rangeMonth) + "월 " + birthdayFromDTO?.slice(rangeDay) + "일, "
+
                 var sexkind = userInfoDTO?.sex // 1, 2, 3, 4
-                if (sexkind != null) {
-                    sexkind = if( sexkind.toInt() % 2 == 0){
-                        "여자"
+                var birthday = "0"
+                if (sexkind != null){
+                    birthday = if(sexkind.toInt() <= 2){
+                        "19" + birthdayFromDTO?.slice(rangeYear) + "년 " + birthdayFromDTO?.slice(rangeMonth) + "월 " + birthdayFromDTO?.slice(rangeDay) + "일"
                     } else{
-                        "남자"
+                        "20" + birthdayFromDTO?.slice(rangeYear) + "년 " + birthdayFromDTO?.slice(rangeMonth) + "월 " + birthdayFromDTO?.slice(rangeDay) + "일"
                     }
                 }
-                if (birthdayFromDTO != null){
-                    home_id.text = birthday + sexkind
+                if (sexkind != null) {
+                    sexkind = if( sexkind.toInt() % 2 == 0){
+                        "여성"
+                    } else {
+                        "남성"
+                    }
                 }
+
+
+                if (birthdayFromDTO != null){
+                    home_id.text = birthday
+                    home_sex.text = sexkind
+                }
+
                 if(userInfoDTO?.email!=null) {
                     home_mail.text = userInfoDTO.email
                 }

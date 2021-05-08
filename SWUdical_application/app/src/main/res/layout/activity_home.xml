@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
     <!--xml 파일 수정 필요함-->
-
     <!--    하단바-->
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -66,146 +65,207 @@
 
     <!--    수정-->
 
+
+    <!--    <Button-->
+    <!--        android:id="@+id/editinfobtn"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:background="@drawable/button2_design"-->
+    <!--        android:fontFamily="@font/nanumsquare_acb"-->
+    <!--        android:text="EDIT"-->
+    <!--        android:textAlignment="center"-->
+
+    <!--        android:textColor="@color/mainPurple"-->
+    <!--        android:textSize="20sp"-->
+    <!--        tools:layout_editor_absoluteX="100dp"-->
+    <!--        tools:layout_editor_absoluteY="317dp" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/logoutbtn"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:background="@drawable/button2_design2"-->
+    <!--        android:fontFamily="@font/nanumsquare_acb"-->
+    <!--        android:text="LOGOUT"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textColor="@color/mainWhite"-->
+    <!--        android:textSize="20sp"-->
+    <!--        tools:layout_editor_absoluteX="221dp"-->
+    <!--        tools:layout_editor_absoluteY="317dp" />-->
+
     <ImageView
         android:id="@+id/userinfo_logo1"
-        android:layout_width="315dp"
-        android:layout_height="78dp"
+        android:layout_width="308dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="20dp"
         android:contentDescription="TODO"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059"
         app:srcCompat="@drawable/logo_n_blue" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="40dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_home_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215"
         app:srcCompat="@drawable/profile_n" />
-
-    <Button
-        android:id="@+id/editinfobtn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button2_design"
-        android:fontFamily="@font/nanumsquare_acb"
-        android:text="EDIT"
-        android:textAlignment="center"
-
-        android:textColor="@color/mainPurple"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
-
-    <Button
-        android:id="@+id/logoutbtn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button2_design2"
-        android:fontFamily="@font/nanumsquare_acb"
-        android:text="LOGOUT"
-        android:textAlignment="center"
-        android:textColor="@color/mainWhite"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.292" />
-
 
     <TextView
         android:id="@+id/home_mail"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="200dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|center_horizontal|left"
-        android:textAlignment="textStart"
+        android:textAlignment="viewStart"
         android:textColor="@color/mainBlack"
-        android:textSize="24sp"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_id"
-        tools:ignore="RtlCompat" />
-
-    <ImageView
-        android:id="@+id/icon_mail"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/home_mail"
-        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_id"
-        app:srcCompat="@drawable/ic_baseline_mail_24" />
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/home_name"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|center_horizontal|left"
-        android:textAlignment="textStart"
+        android:textAlignment="viewStart"
         android:textColor="@color/mainBlack"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_home_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoutbtn"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlCompat" />
-
-    <ImageView
-        android:id="@+id/icon_id"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/home_id"
-        app:layout_constraintHorizontal_bias="0.818"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_name"
-        app:srcCompat="@drawable/ic_baseline_assignment_ind_24" />
-
-    <ImageView
-        android:id="@+id/icon_name"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="92dp"
-        app:layout_constraintEnd_toStartOf="@+id/home_name"
-        app:layout_constraintHorizontal_bias="0.818"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoutbtn"
-        app:srcCompat="@drawable/ic_baseline_face_24" />
 
     <TextView
         android:id="@+id/home_id"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|right|center_horizontal"
-        android:textAlignment="textStart"
+        android:textAlignment="viewStart"
         android:textColor="@color/mainBlack"
-        android:textSize="24sp"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_home_sex"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_name"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/text_home_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/nanumsquare_acr"
+        android:text="이메일"
+        android:textAlignment="viewStart"
+        android:textColor="@color/mainPurple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/home_mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_home_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/nanumsquare_acr"
+        android:text="생년월일"
+        android:textAlignment="viewStart"
+        android:textColor="@color/mainPurple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/home_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/logoutbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="115dp"
+        android:fontFamily="@font/nanumsquare_acr"
+        android:text="로그아웃"
+        android:textColor="@color/mainPurple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/editinfobtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="115dp"
+        android:fontFamily="@font/nanumsquare_acr"
+        android:text="정보 수정"
+        android:textColor="@color/mainPurple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/logoutbtn"
+        app:layout_constraintHorizontal_bias="0.601"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_home_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/nanumsquare_acr"
+        android:text="이름"
+        android:textAlignment="viewStart"
+        android:textColor="@color/mainPurple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/home_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/text_home_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/nanumsquare_acr"
+        android:text="성별"
+        android:textAlignment="viewStart"
+        android:textColor="@color/mainPurple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/home_sex"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/home_sex"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/nanumsquare_acr"
+        android:gravity="clip_horizontal|center|start"
+        android:textAlignment="viewStart"
+        android:textColor="@color/mainBlack"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_home_mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
