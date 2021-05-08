@@ -1,12 +1,16 @@
 package com.example.swudical
 
+import android.animation.Animator
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import androidx.core.view.isVisible
 import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.Chart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
@@ -19,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
 import kotlinx.android.synthetic.main.activity_home.btn_staffvali
 import kotlinx.android.synthetic.main.activity_staff_vali_1.*
 import kotlinx.android.synthetic.main.activity_staff_vali_1.chart
+
 import org.nd4j.linalg.factory.Nd4j
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
@@ -33,6 +38,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_staff_vali_1)
 
+        animationView.playAnimation()
         val voice_path = intent.getStringExtra("voice_path")
         val doctor_id = intent.getStringExtra("doctor_id")
 
@@ -86,6 +92,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
 
                 }
             }
+
             // 그래프 변환을 위한 소수점 변환
             val f_max = max.toFloat()
             val s_max = second_max.toFloat()
@@ -93,18 +100,29 @@ class StaffVali_1_Activity : AppCompatActivity() {
             // 정답 일치.toString 지웠
             if(doctor_id == index.toString()){
                 test.text = "일치"
+                animationView.isVisible = false
+                animationView.pauseAnimation()
+
+            } else {
+                test.text = "불일치"
+                animationView.isVisible = false
+                animationView.pauseAnimation()
             }
             // 그래프 데이터 임의로 넣기
             val entryList = mutableListOf<PieEntry>()
-            entryList.add(PieEntry(f_max, "A"))
-            entryList.add(PieEntry(s_max, "B"))
-            entryList.add(PieEntry(t_max, "C"))
+            entryList.add(PieEntry(f_max, "1순위"))
+            entryList.add(PieEntry(s_max, "2순위"))
+            entryList.add(PieEntry(t_max, "3순위"))
             val colorsItems = ArrayList<Int>()
-            for (c in ColorTemplate.VORDIPLOM_COLORS) colorsItems.add(c)
-            for (c in ColorTemplate.JOYFUL_COLORS) colorsItems.add(c)
-            colorsItems.add(ColorTemplate.getHoloBlue())
+            colorsItems.add(resources.getColor(R.color.mainPurple))
+            colorsItems.add(resources.getColor(R.color.subPurple2))
+            colorsItems.add(resources.getColor(R.color.subPurple1))
+//            for (c in ColorTemplate.VORDIPLOM_COLORS) colorsItems.add(c)
+//            for (c in ColorTemplate.JOYFUL_COLORS) colorsItems.add(c)
+//            colorsItems.add(ColorTemplate.getHoloBlue())
+
             // 파이 그래프에 들어갈 데이터 set 생성
-            val pieDataSet = PieDataSet(entryList, "MyPieChart")
+            val pieDataSet = PieDataSet(entryList, "*의료진 일치도가 높은 순서대로 정렬됩니다")
             // pie 커스터마이징
             pieDataSet.apply {
 
@@ -112,18 +130,21 @@ class StaffVali_1_Activity : AppCompatActivity() {
                 selectionShift = 5f
                 colors = colorsItems
                 yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
-                valueTextSize = 11f
+                valueTextSize = 10f
 
             }
             // 어떻게 데이터 보여줄지 구성하
             val pieData = PieData(pieDataSet)
-            chart.apply {
+
+           chart.apply {
+
                 data = pieData
                 description.isEnabled = false
                 isRotationEnabled = false
                 setEntryLabelColor(Color.BLACK)
                 animateY(1400, Easing.EaseInOutQuad)
                 animate()
+
             }
         }.addOnFailureListener {
             Log.e("TAG", "error")
