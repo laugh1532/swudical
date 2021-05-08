@@ -63,15 +63,15 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_contents" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_contents"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txt_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:fontFamily="@font/nanumsquare_aceb"
         android:includeFontPadding="false"
         android:text="해시값 상세보기"
@@ -86,7 +86,7 @@
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/nanumsquare_aceb"
         android:includeFontPadding="false"
@@ -162,6 +162,7 @@
 
     </LinearLayout>
     ㄴ
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="100dp"
@@ -172,6 +173,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.013"
-        app:srcCompat="@drawable/logo_n" />
+        app:srcCompat="@drawable/logo_n_blue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
