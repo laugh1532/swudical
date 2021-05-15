@@ -95,179 +95,176 @@
 
     <ImageView
         android:id="@+id/userinfo_logo1"
-        android:layout_width="308dp"
-        android:layout_height="73dp"
+        android:layout_width="252dp"
+        android:layout_height="47dp"
         android:layout_marginTop="30dp"
         android:contentDescription="TODO"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.573"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_n_blue" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="25dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/text_home_name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697"
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_logo1"
         app:srcCompat="@drawable/profile_n" />
 
     <TextView
         android:id="@+id/home_mail"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|center_horizontal|left"
         android:textAlignment="viewStart"
         android:textColor="@color/mainBlack"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_mail"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/home_name"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|center_horizontal|left"
         android:textAlignment="viewStart"
         android:textColor="@color/mainBlack"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_home_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_name"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/home_id"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|right|center_horizontal"
         android:textAlignment="viewStart"
         android:textColor="@color/mainBlack"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_home_sex"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_id"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/text_home_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="이메일"
         android:textAlignment="viewStart"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_mail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.254"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_sex" />
 
     <TextView
         android:id="@+id/text_home_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="생년월일"
         android:textAlignment="viewStart"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.266"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_name" />
 
     <TextView
         android:id="@+id/logoutbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="115dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="로그아웃"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_mail" />
 
     <TextView
         android:id="@+id/editinfobtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="115dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="정보 수정"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/logoutbtn"
-        app:layout_constraintHorizontal_bias="0.601"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_mail" />
 
     <TextView
         android:id="@+id/text_home_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="이름"
         android:textAlignment="viewStart"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/text_home_sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="성별"
         android:textAlignment="viewStart"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_sex"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.242"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_id" />
 
     <TextView
         android:id="@+id/home_sex"
         android:layout_width="230dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="clip_horizontal|center|start"
         android:textAlignment="viewStart"
         android:textColor="@color/mainBlack"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_home_mail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_sex" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
