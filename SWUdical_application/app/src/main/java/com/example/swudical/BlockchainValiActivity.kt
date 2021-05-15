@@ -1,9 +1,11 @@
 package com.example.swudical
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.swudical.DTO.MedicalConfirmDTO
 import com.example.swudical.DTO.UserInfoDTO
@@ -38,6 +40,12 @@ class BlockchainValiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blockchain_vali)
+
+        val go_intent = findViewById(R.id.btn_Detail) as Button
+        go_intent.setOnClickListener {
+            val intent = Intent(this, BlockchainListActivity::class.java)
+            startActivity(intent)
+        }
 
         //region 블록체인 주소 조회
 //        db.collection("user_info").document(uid)
