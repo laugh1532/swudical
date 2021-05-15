@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swudical.DTO.UserInfoDTO
@@ -31,6 +32,7 @@ import java.io.IOException
 import kotlinx.android.synthetic.main.activity_home.btn_home
 import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
 import kotlinx.android.synthetic.main.activity_home.btn_staffvali
+import org.jetbrains.anko.find
 
 class BlockchainListActivity : AppCompatActivity() {
     private var htmlContentInStringFormat: String? = null
@@ -46,6 +48,7 @@ class BlockchainListActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
         val uid = user.currentUser?.uid.toString()
+        val txt_title = findViewById<TextView>(R.id.txt_title)
 
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
