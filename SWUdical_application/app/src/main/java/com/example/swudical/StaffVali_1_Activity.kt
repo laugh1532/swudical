@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.SpannableString
 import android.util.Log
 import androidx.core.content.ContextCompat
 import com.example.swudical.DTO.UserInfoDTO
@@ -124,8 +125,12 @@ class StaffVali_1_Activity : AppCompatActivity() {
             val s_max = second_max.toFloat()
             val t_max = third_max.toFloat()
             // 정답 일치.toString 지웠
+
+
             if(doctor_id == index.toString()){
-                test.text = "일치"
+                testresult.text = "일치"
+            }else{
+                testresult.text="불일치"
             }
             // 그래프 데이터 임의로 넣기
             val entryList = mutableListOf<PieEntry>()
@@ -167,6 +172,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
         //하단 바
         Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
     }
+
 
     //region 텐서플로우 인터프리터
     private fun getTfliteInterpreter(modelPath: String): Interpreter? {
