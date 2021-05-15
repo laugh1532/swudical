@@ -10,25 +10,27 @@
         android:id="@+id/textView"
         android:layout_width="318dp"
         android:layout_height="45dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="@string/userinfo"
         android:textColor="@color/mainBlack"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userinfo_logo1" />
 
     <ImageView
         android:id="@+id/userinfo_logo1"
-        android:layout_width="315dp"
-        android:layout_height="78dp"
+        android:layout_width="299dp"
+        android:layout_height="68dp"
         android:contentDescription="TODO"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075"
+        app:layout_constraintVertical_bias="0.064"
         app:srcCompat="@drawable/logo_n_blue" />
 
     <TextView

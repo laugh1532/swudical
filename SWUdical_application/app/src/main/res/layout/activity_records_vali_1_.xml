@@ -5,29 +5,29 @@
     android:id="@+id/txt_subtitle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Records_Vali_1_Activity" >
+    tools:context=".Records_Vali_1_Activity">
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007"
         app:srcCompat="@drawable/logo_n_blue" />
 
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="387dp"
-        android:layout_height="693dp"
+        android:layout_width="match_parent"
+        android:layout_height="686dp"
+        android:layout_marginTop="20dp"
         android:columnCount="6"
         android:orientation="horizontal"
         android:rowCount="25"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
 
         <TextView
             android:id="@+id/textView15"
@@ -37,6 +37,7 @@
             android:layout_columnSpan="3"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="진료확인서"
             android:textColor="@color/mainBlack" />
@@ -48,6 +49,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="부서명"
             android:textColor="@color/mainBlack" />
@@ -59,6 +61,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -69,6 +72,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="작성자"
             android:textColor="@color/mainBlack" />
@@ -80,6 +84,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -90,6 +95,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="작성일자"
             android:textColor="@color/mainBlack" />
@@ -101,6 +107,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -110,6 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="진료번호"
             android:textColor="@color/mainBlack" />
@@ -121,6 +129,7 @@
             android:layout_columnSpan="5"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -131,6 +140,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="성명"
             android:textColor="@color/mainBlack" />
@@ -142,6 +152,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -152,6 +163,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="성별"
             android:textColor="@color/mainBlack" />
@@ -163,6 +175,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -173,6 +186,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="연령"
             android:textColor="@color/mainBlack" />
@@ -184,6 +198,7 @@
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -193,6 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="주민등록번호"
             android:textColor="#000000"
@@ -206,6 +222,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -215,6 +232,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="전화번호"
             android:textColor="@color/mainBlack" />
@@ -226,6 +244,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -236,6 +255,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="주소"
             android:textColor="@color/mainBlack" />
@@ -247,6 +267,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -258,6 +279,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="질병명"
             android:textColor="@color/mainBlack" />
@@ -270,6 +292,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -280,6 +303,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="진료기간"
             android:textColor="@color/mainBlack" />
@@ -291,6 +315,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -302,6 +327,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="진료내용"
             android:textColor="@color/mainBlack" />
@@ -314,6 +340,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -324,6 +351,7 @@
             android:layout_columnSpan="6"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="위 진료 대상자에 대하여 위와 같이 진료하였음을 확인합니다."
             android:textColor="@color/mainBlack" />
@@ -335,6 +363,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="의료기관명"
             android:textColor="@color/mainBlack" />
@@ -346,6 +375,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -356,6 +386,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="의사면허번호"
             android:textColor="@color/mainBlack"
@@ -368,6 +399,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 
@@ -378,6 +410,7 @@
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:text="담당의사"
             android:textColor="@color/mainBlack" />
@@ -389,6 +422,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
             android:background="@drawable/table_inside"
+            android:fontFamily="@font/nanumsquare_acb"
             android:gravity="center"
             android:textColor="@color/mainBlack" />
 

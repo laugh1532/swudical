@@ -84,6 +84,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
 
+    // lottie animation 라이브러리
+    implementation 'com.airbnb.android:lottie:3.7.0'
     // graph 라이브러리
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     //텐서플로우

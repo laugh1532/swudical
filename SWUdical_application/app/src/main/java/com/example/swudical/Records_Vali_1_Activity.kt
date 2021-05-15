@@ -3,7 +3,10 @@ package com.example.swudical
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.core.content.ContextCompat
 import com.example.swudical.DTO.MedicalConfirmDTO
+import com.example.swudical.DTO.UserInfoDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_records_vali_1_.*
@@ -15,7 +18,6 @@ class Records_Vali_1_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_records_vali_1_)
 
         val item:MedicalConfirmDTO = intent.getSerializableExtra("item") as MedicalConfirmDTO
-
 
         dept.text = item.dept
         writer.text = item.writer
@@ -33,6 +35,8 @@ class Records_Vali_1_Activity : AppCompatActivity() {
         doctor_name.text = item.doctor_name
         diagnosis.text = item.diagnosis
         write_date.text = item.date
+
+
     }
 
     override fun onBackPressed() {

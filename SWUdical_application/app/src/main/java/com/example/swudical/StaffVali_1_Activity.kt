@@ -6,19 +6,25 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.ContextCompat
+import com.example.swudical.DTO.UserInfoDTO
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_home.btn_home
 import kotlinx.android.synthetic.main.activity_home.btn_rcdvali
 import kotlinx.android.synthetic.main.activity_home.btn_staffvali
+import kotlinx.android.synthetic.main.activity_staff_vali.*
 import kotlinx.android.synthetic.main.activity_staff_vali_1.*
 import kotlinx.android.synthetic.main.activity_staff_vali_1.chart
+import kotlinx.android.synthetic.main.activity_staff_vali_1.txt_title
 import org.nd4j.linalg.factory.Nd4j
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
@@ -32,6 +38,33 @@ class StaffVali_1_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_staff_vali_1)
+
+        //OO님의 수술실
+        val user = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+        val uid = user.currentUser?.uid.toString()
+
+        db.collection("user_info").document(uid)
+            .get().addOnSuccessListener { result ->
+                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+
+                if(userInfoDTO?.name==null || userInfoDTO.sex ==null || userInfoDTO.email ==null || userInfoDTO.birthday ==null){
+                    val intent = Intent(this, UserInfoActivity::class.java)
+                    intent.putExtra("where", "main")
+                    ContextCompat.startActivity(this, intent, null)
+                }
+
+                if (userInfoDTO != null) {
+                    txt_title.text = userInfoDTO.name.toString() + "님의 수술실"
+                }
+                else{
+                    txt_title.text = "환자님의 수술실"
+                }
+            }
+            .addOnFailureListener() { exception ->
+                Log.w("ERR", "err getting documents: ", exception)
+            }
+
 
         val voice_path = intent.getStringExtra("voice_path")
         val doctor_id = intent.getStringExtra("doctor_id")

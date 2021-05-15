@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".BlockchainListActivity"></activity>
+        <activity android:name=".BlockchainListActivity" />
         <activity android:name=".BlockchainValiActivity" />
 
         <meta-data
@@ -42,11 +42,8 @@
         <activity android:name=".StaffValiActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
-
-            <!-- android:theme="@style/SplashTheme" -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
