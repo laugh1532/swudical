@@ -64,6 +64,7 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
                 }
                 btn_check.setOnClickListener{
                     val intent = Intent(it.context, BlockchainValiActivity::class.java)
+                    intent.putExtra("item", item)
                     ContextCompat.startActivity(it.context, intent, null)
                 }
 
