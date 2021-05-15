@@ -38,24 +38,6 @@ class RecordsValiActivity : AppCompatActivity() {
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
 
-                //region 해시값 테스트
-                val directDTOtoString = userInfoDTO.toString()
-
-                Log.d("DTO로 받고 toStirng", directDTOtoString)
-
-                val hash: ByteArray
-                try {
-                    val msg = directDTOtoString
-                    val md = MessageDigest.getInstance("SHA-256")
-                    md.update(msg.toByteArray())
-                    hash = md.digest()
-                    val result = bytesToHex(hash)
-                    Log.d("hash", result)
-                } catch (e: CloneNotSupportedException) {
-                    throw DigestException("couldn't make digest of partial content");
-                }
-                //endregion
-
                 if(userInfoDTO?.name==null || userInfoDTO.sex ==null || userInfoDTO.email ==null || userInfoDTO.birthday ==null){
                     val intent = Intent(this, UserInfoActivity::class.java)
                     intent.putExtra("where", "main")

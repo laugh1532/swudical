@@ -32,9 +32,6 @@ class Common {
             firestore.collection("medical_confirmation")
                 .whereNotEqualTo( if(layout_id == R.layout.activity_staff_vali) "voice_path" else "user_id", "")
                 .whereEqualTo("user_id", uid)
-//                .orderBy("user_id")    //surgery_date 정렬하려면 필요
-//                .orderBy("voice_path") //surgery_date 정렬하려면 필요
-//                .orderBy("surgery_date", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener { result ->
                     var medicalConfirmDTO: MedicalConfirmDTO
