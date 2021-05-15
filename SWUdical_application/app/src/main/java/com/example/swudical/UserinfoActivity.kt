@@ -71,12 +71,14 @@ class UserInfoActivity : AppCompatActivity() {
         val email = et_email.text.toString()
         val sex = et_sex.text.toString()
         val birthday = et_birthday.text.toString()
+        val blockAddr = "0x84754e49Bb890628eD9faBF4ea188d0ab7CC310c"
 
         val userInfo = UserInfoDTO(
             name,
             email,
             sex,
-            birthday
+            birthday,
+            blockAddr
         )
 
         db.collection("user_info").document(user?.uid.toString())

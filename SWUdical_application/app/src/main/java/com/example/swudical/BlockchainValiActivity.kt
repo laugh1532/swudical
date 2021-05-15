@@ -25,17 +25,13 @@ import kotlin.jvm.Throws
 
 class BlockchainValiActivity : AppCompatActivity() {
     var dbHash:String = String()
-    var resHash:String = String()
-    var resBlockNum:String = "String()"
-    var blockAddr:String = String()
-    var isMatch : String = String()
+    var resHash:String = "불일치"
+    var resBlockNum:String = "불일치"
+    var isMatch : String = "불일치"
 
     val user = FirebaseAuth.getInstance()
-    val db = FirebaseFirestore.getInstance()
-    val uid = user.currentUser?.uid.toString()
-
-    var _hashList = ArrayList<String>()
-    var _blockList = ArrayList<String>()
+//    val db = FirebaseFirestore.getInstance()
+//    val uid = user.currentUser?.uid.toString()
 
     private var htmlContentInStringFormat: String? = null
 
@@ -44,17 +40,17 @@ class BlockchainValiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_blockchain_vali)
 
         //region 블록체인 주소 조회
-        db.collection("user_info").document(uid)
-            .get().addOnSuccessListener { result ->
-                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
-                val directDTOtoString = userInfoDTO.toString()
-                if (userInfoDTO != null) {
-                    blockAddr = userInfoDTO.blockAddr!!
-                }
-            }
-            .addOnFailureListener() { exception ->
-                Log.w("ERR", "err getting documents: ", exception)
-            }
+//        db.collection("user_info").document(uid)
+//            .get().addOnSuccessListener { result ->
+//                val userInfoDTO = result.toObject(UserInfoDTO::class.java)
+//                if (userInfoDTO != null) {
+//                    blockAddr = userInfoDTO.blockAddr!!
+//                    Log.d("test", blockAddr)
+//                }
+//            }
+//            .addOnFailureListener() { exception ->
+//                Log.w("ERR", "err getting documents: ", exception)
+//            }
         //endregion
 
         //region DB 해시 값 조회
@@ -68,7 +64,7 @@ class BlockchainValiActivity : AppCompatActivity() {
             md.update(directDTOtoString.toByteArray())
             val hash = md.digest()
 
-            dbHash = AppEventUtility.bytesToHex(hash)
+            dbHash = "0x" + AppEventUtility.bytesToHex(hash)
 
             Log.d("result", dbHash)
 
@@ -80,7 +76,8 @@ class BlockchainValiActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             async(Dispatchers.IO){
                 try {
-                    val htmlPageUrl = "https://api-ropsten.etherscan.io/api?module=account&action=txlist&address="+blockAddr+"&startblock=0&endblock=99999999&sort=asc&apikey=6J7H7XR6ZW7AXKB4CZABIJBCZNNPR1KFV3"
+                    //val htmlPageUrl = "https://api-ropsten.etherscan.io/api?module=account&action=txlist&address="+blockAddr+"&startblock=0&endblock=99999999&sort=asc&apikey=1Y9HJ1PYCVA31EXJ3S4TNUK9CYBA27N5RT"
+                    val htmlPageUrl = "https://api-ropsten.etherscan.io/api?module=account&action=txlist&address=0x84754e49Bb890628eD9faBF4ea188d0ab7CC310c&startblock=0&endblock=99999999&sort=asc&apikey=6J7H7XR6ZW7AXKB4CZABIJBCZNNPR1KFV3"
                     val doc: Document = Jsoup.connect(htmlPageUrl).ignoreContentType(true).get()
                     val links: Elements = doc.select("body")
 
@@ -90,29 +87,24 @@ class BlockchainValiActivity : AppCompatActivity() {
 
                     htmlContentInStringFormat = htmlContentInStringFormat?.substring(4, htmlContentInStringFormat!!.length)
 
-//                    var x = JSONParser(htmlContentInStringFormat)
-                    resHash = "불일치"
-                    resBlockNum = "불일치"
-                    isMatch =  "불일치"
-
-                    val jsonObject = JSONObject(htmlContentInStringFormat)
-                    //val jResult = jsonObject.getString("result")     //result 파싱
+                    //region 파싱
+                    val jsonObject = JSONObject(htmlContentInStringFormat!!)
                     val jsonArray = JSONArray(jsonObject.getString("result"))  //result 값 array로 받아오기
 
                     for (i in 0 until jsonArray.length()) {
                         val jsonObject2 = jsonArray.getJSONObject(i)
                         val blockNumber = jsonObject2.getString("blockNumber")  //blockNumber 파싱
                         val hash = jsonObject2.getString("input")              //input 파싱(hash)
-                        _hashList.add(hash)
-                        _blockList.add(blockNumber)
 
-                        if(dbHash.equals(hash)){
+                        if(dbHash==hash){
+                            Log.d("test", dbHash)
                             resHash = hash
                             resBlockNum = blockNumber
                             isMatch =  "일치"
                             break
                         }
                     }
+                    //endregion
 
                 } catch (e: IOException) {
                     e.printStackTrace()
@@ -122,7 +114,6 @@ class BlockchainValiActivity : AppCompatActivity() {
             }.await()
 
             async(Dispatchers.Main){
-
                 txt_dbhash.text = dbHash
                 txt_blockNum.text = resBlockNum
                 txt_resHash.text = resHash
