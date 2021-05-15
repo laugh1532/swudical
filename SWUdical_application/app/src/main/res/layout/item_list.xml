@@ -7,83 +7,132 @@
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
     android:defaultFocusHighlightEnabled="true"
-    android:gravity="center"
-    android:orientation="horizontal"
+    android:gravity="left"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="20dp"
-        android:layout_height="30dp"
-        app:srcCompat="@drawable/ic_date2" />
 
-    <TextView
-        android:id="@+id/surgery"
-        android:layout_width="89dp"
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="346dp"
         android:layout_height="match_parent"
-        android:fontFamily="@font/nanumsquare_acr"
-        android:gravity="center|left"
-        android:includeFontPadding="false"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="gravity"
-        android:textSize="14sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="78dp" />
+        app:columnCount="5"
+        app:orientation="horizontal"
+        app:rowCount="2">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="20dp"
-        android:layout_height="30dp"
-        app:srcCompat="@drawable/ic_hospital2" />
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/nanumsquare_aceb"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="2"
+            android:textAlignment="center"
+            android:textColor="@color/mainPurple"
+            app:layout_column="0"
+            app:layout_row="0" />
 
-    <TextView
-        android:id="@+id/hospital"
-        android:layout_width="75dp"
-        android:layout_height="match_parent"
-        android:fontFamily="@font/nanumsquare_acr"
-        android:gravity="center|left"
-        android:includeFontPadding="false"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="gravity"
-        android:textSize="14sp"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="58dp" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            app:srcCompat="@drawable/ic_date2" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="20dp"
-        android:layout_height="30dp"
-        app:srcCompat="@drawable/ic_diagnosis2" />
+        <TextView
+            android:id="@+id/surgery"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:gravity="center|left"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textAlignment="gravity"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="78dp" />
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            app:srcCompat="@drawable/ic_diagnosis2" />
 
-    <TextView
-        android:id="@+id/txt_subtitle"
-        android:layout_width="82dp"
-        android:layout_height="match_parent"
-        android:fontFamily="@font/nanumsquare_acr"
-        android:gravity="center|left"
-        android:includeFontPadding="false"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="gravity"
-        android:textSize="14sp"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="2dp" />
+        <TextView
+            android:id="@+id/txt_subtitle"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:gravity="center|left"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textAlignment="gravity"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="-1dp"
+            tools:layout_editor_absoluteY="2dp" />
 
-    <Button
-        android:id="@+id/btn_check"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="0"
-        android:background="#FFFFFF"
-        android:fontFamily="@font/nanumsquare_acr"
-        android:gravity="center|left"
-        android:includeFontPadding="false"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:text="위변조 확인"
-        android:textAlignment="center"
-        android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_weight="0"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:gravity="center"
+            android:textColor="@color/mainPurple"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="위변조 확인"
+            android:textAlignment="center"
+            android:textSize="11dp" />
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            app:srcCompat="@drawable/ic_hospital2" />
+
+        <TextView
+            android:id="@+id/hospital"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:gravity="center|left"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textAlignment="gravity"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="220dp"
+            tools:layout_editor_absoluteY="58dp" />
+
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            app:srcCompat="@drawable/ic_doctor2" />
+
+        <TextView
+            android:id="@+id/doctor_name"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:gravity="center|left"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textAlignment="gravity"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="-1dp"
+            tools:layout_editor_absoluteY="2dp" />
+
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </LinearLayout>

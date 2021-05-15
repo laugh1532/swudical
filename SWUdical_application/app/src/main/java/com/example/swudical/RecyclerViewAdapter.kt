@@ -35,12 +35,14 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
     class ViewHolder(itemView: View, private var layout_id: Int) : RecyclerView.ViewHolder(itemView) {
         private var view: View = itemView
         private val btn_check: Button = itemView.findViewById(R.id.btn_check) as Button
-
+        private var numbering:Int = 1
         fun bindViewHolder(item: MedicalConfirmDTO) {
             //데이터 바인딩(item_list-파이어베이스)
+            view.num.text = numbering.toString()
             view.txt_subtitle.text = item.surgery_date
             view.surgery.text = item.diagnosis
             view.hospital.text = item.hospital
+            view.doctor_name.text = numbering.toString()
 
             //region 리사이클러뷰 클릭이벤트
             //의료진확인
@@ -64,6 +66,7 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
                     val intent = Intent(it.context, BlockchainValiActivity::class.java)
                     ContextCompat.startActivity(it.context, intent, null)
                 }
+
             }
             //endregion
 
