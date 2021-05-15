@@ -133,4 +133,3 @@ class BlockchainValiActivity : AppCompatActivity() {
 
     }
 }
-

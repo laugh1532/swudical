@@ -25,7 +25,6 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
     //바인딩 이벤트
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-
         holder.apply{
             bindViewHolder(item)
         }
@@ -34,20 +33,26 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
     //뷰 홀더 클래스
     class ViewHolder(itemView: View, private var layout_id: Int) : RecyclerView.ViewHolder(itemView) {
         private var view: View = itemView
+
         private val btn_check: Button = itemView.findViewById(R.id.btn_check) as Button
-        private var numbering:Int = 1
         fun bindViewHolder(item: MedicalConfirmDTO) {
+
             //데이터 바인딩(item_list-파이어베이스)
-            view.num.text = numbering.toString()
             view.txt_subtitle.text = item.surgery_date
             view.surgery.text = item.diagnosis
             view.hospital.text = item.hospital
-            view.doctor_name.text = numbering.toString()
+            view.doctor_name.text = item.doctor_name
 
             //region 리사이클러뷰 클릭이벤트
             //의료진확인
             if (layout_id == R.layout.activity_staff_vali){
-                view.btn_check.visibility =View.GONE //버튼 안 보이게
+                btn_check.text = "의료진 확인"
+                btn_check.setOnClickListener{
+                    val intent = Intent(it.context, StaffVali_1_Activity::class.java)
+                    intent.putExtra("voice_path", item.voice_path)
+                    intent.putExtra("doctor_id", item.doctor_id.toString())
+                    ContextCompat.startActivity(it.context, intent, null)
+                }
                 itemView.setOnClickListener {
                     val intent = Intent(it.context, StaffVali_1_Activity::class.java)
                     intent.putExtra("voice_path", item.voice_path)
