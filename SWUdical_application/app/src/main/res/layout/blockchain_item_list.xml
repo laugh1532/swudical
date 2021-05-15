@@ -12,7 +12,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/surgery"
+        android:id="@+id/blockNum"
         android:layout_width="134dp"
         android:layout_height="40dp"
         android:fontFamily="@font/nanumsquare_acr"
@@ -26,7 +26,7 @@
         tools:layout_editor_absoluteY="78dp" />
 
     <TextView
-        android:id="@+id/hospital"
+        android:id="@+id/hashVal"
         android:layout_width="147dp"
         android:layout_height="40dp"
         android:fontFamily="@font/nanumsquare_acr"

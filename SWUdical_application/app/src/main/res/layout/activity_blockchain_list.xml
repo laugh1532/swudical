@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="블록번호"
-        app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
+        app:layout_constraintBottom_toTopOf="@+id/rv_hashList"
         app:layout_constraintEnd_toStartOf="@+id/hash"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="해시값"
-        app:layout_constraintBottom_toTopOf="@+id/rv_medicalList"
+        app:layout_constraintBottom_toTopOf="@+id/rv_hashList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.688"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +88,7 @@
         tools:text="김슈니님의 수술실" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_medicalList"
+        android:id="@+id/rv_hashList"
         android:layout_width="301dp"
         android:layout_height="406dp"
         android:layout_marginTop="52dp"
