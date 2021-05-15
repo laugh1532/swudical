@@ -110,7 +110,9 @@
         tools:text="김슈니님의 수술실" />
 
     <TextView
-        android:id="@+id/test"
+        android:id="@+id/testresult"
+        android:autoSizeTextType="uniform"
+        android:singleLine="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="42dp"
