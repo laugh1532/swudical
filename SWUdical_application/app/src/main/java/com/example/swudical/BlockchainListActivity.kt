@@ -1,5 +1,6 @@
 package com.example.swudical
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_home.btn_staffvali
 import kotlinx.android.synthetic.main.activity_staff_vali.*
 
 class BlockchainListActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blockchain_list)

@@ -53,6 +53,7 @@
 
     <TextView
         android:id="@+id/txt_title"
+        android:autoSizeTextType="uniform"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"

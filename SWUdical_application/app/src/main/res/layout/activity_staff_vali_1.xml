@@ -111,6 +111,7 @@
 
     <TextView
         android:id="@+id/testresult"
+        android:autoSizeTextType="uniform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="42dp"
