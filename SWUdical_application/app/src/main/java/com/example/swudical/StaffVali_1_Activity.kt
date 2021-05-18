@@ -165,7 +165,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
                 sliceSpace = 2f
                 selectionShift = 5f
                 colors = colorsItems
-                yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
+                yValuePosition = PieDataSet.ValuePosition.INSIDE_SLICE
                 valueTextSize = 10f
 
             }
