@@ -15,6 +15,9 @@ import com.facebook.appevents.internal.AppEventUtility
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_blockchain_vali.*
+import kotlinx.android.synthetic.main.activity_blockchain_vali.btn_home
+import kotlinx.android.synthetic.main.activity_blockchain_vali.btn_rcdvali
+import kotlinx.android.synthetic.main.activity_blockchain_vali.btn_staffvali
 import kotlinx.android.synthetic.main.activity_blockchain_vali.txt_title
 import kotlinx.android.synthetic.main.activity_staff_vali.*
 import kotlinx.coroutines.*
@@ -45,6 +48,10 @@ class BlockchainValiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blockchain_vali)
 
+        //하단 바
+        Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
+
+        //OO님의 수술실
         val user = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
         val uid = user.currentUser?.uid.toString()
@@ -52,12 +59,6 @@ class BlockchainValiActivity : AppCompatActivity() {
         db.collection("user_info").document(uid)
             .get().addOnSuccessListener { result ->
                 val userInfoDTO = result.toObject(UserInfoDTO::class.java)
-
-                if(userInfoDTO?.name==null || userInfoDTO.sex ==null || userInfoDTO.email ==null || userInfoDTO.birthday ==null){
-                    val intent = Intent(this, UserInfoActivity::class.java)
-                    intent.putExtra("where", "main")
-                    ContextCompat.startActivity(this, intent, null)
-                }
 
                 if (userInfoDTO != null) {
                     txt_title.text = userInfoDTO.name.toString() + "님의 수술실"

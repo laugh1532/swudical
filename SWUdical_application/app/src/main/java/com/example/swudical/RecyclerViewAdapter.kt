@@ -44,8 +44,8 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
             view.hospital.text = item.hospital
             view.doctor_name.text = item.doctor_name
             view.num.text = (position+1).toString()
-            //region 리사이클러뷰 클릭이벤트
 
+            //region 리사이클러뷰 클릭이벤트
             //의료진확인
             if (layout_id == R.layout.activity_staff_vali){
                 btn_check.isInvisible
