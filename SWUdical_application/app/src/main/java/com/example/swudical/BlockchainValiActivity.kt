@@ -6,6 +6,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.swudical.DTO.MedicalConfirmDTO
 import com.example.swudical.DTO.UserInfoDTO
@@ -40,6 +41,9 @@ class BlockchainValiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blockchain_vali)
+
+        val txt_title = findViewById<TextView>(R.id.txt_title)
+
 
         val go_intent = findViewById(R.id.btn_Detail) as Button
         go_intent.setOnClickListener {
