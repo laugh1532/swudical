@@ -206,7 +206,7 @@
         android:layout_marginBottom="42dp"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
-        android:textColor="#3F51B5"
+        android:textColor="#578BC5"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
