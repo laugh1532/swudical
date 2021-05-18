@@ -6,7 +6,9 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.swudical.DTO.MedicalConfirmDTO
 import com.example.swudical.DTO.UserInfoDTO
 import com.facebook.appevents.internal.AppEventUtility

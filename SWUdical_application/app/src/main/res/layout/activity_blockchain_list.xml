@@ -18,29 +18,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/nanumsquare_acb"
+        android:fontFamily="@font/nanumsquare_aceb"
         android:text="블록번호"
-        android:textColor="#000000"
+        android:textColor="@color/mainPurple"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/rv_hashList"
         app:layout_constraintEnd_toStartOf="@+id/hash"
-        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/hash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nanumsquare_acb"
+        android:fontFamily="@font/nanumsquare_aceb"
         android:text="해시값"
-        android:textColor="#000000"
+        android:textColor="@color/mainPurple"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/rv_hashList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintHorizontal_bias="0.688"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txt_contents"

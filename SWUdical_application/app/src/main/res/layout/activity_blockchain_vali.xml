@@ -179,7 +179,7 @@
         android:textColor="@color/mainBlack"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
@@ -189,7 +189,7 @@
         android:singleLine="false"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="65dp"
         android:fontFamily="@font/nanumsquare_aceb"
         android:includeFontPadding="false"
         android:textColor="@color/mainPurple"
