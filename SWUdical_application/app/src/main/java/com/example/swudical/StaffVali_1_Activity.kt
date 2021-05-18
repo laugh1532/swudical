@@ -83,12 +83,15 @@ class StaffVali_1_Activity : AppCompatActivity() {
         pathReference.getBytes(ONE_MEGABYTE).addOnSuccessListener {
 
             val firebaseData = Nd4j.createNpyFromByteArray(it) //firebase에서 .npy 받아오기
-            val input = firebaseData.toFloatMatrix() //(input) INDArray -> FloatArray
+            val input = firebaseData.toFloatMatrix() //(input) INDArray -> FloatArray""
             val output = Array<FloatArray>(firebaseData.rows(), {FloatArray(20)})  //output 초기화
 
             tflite!!.run(input, output)  //화자인식 run
 
             val answer = IntArray(20, {0}) //레이블 초기화
+            var name = arrayOf<String>("오준현(남)","오가을(여)","유하영(여)","이은영(여)","이재용(남)","이윤진(여)","익명1(남)","익명남(남)","임찬주(여)","익명2(남)","정유민(여)","정유경(여)","정해빈(여)","조미맹(여)","한예진(여)","최혜리(여)","강국대(여)","강나뭇잎(남)","강정윤(여)","자스민()")
+
+
 
             //레이블 생성
             for (i in 0..firebaseData.rows()-1){
@@ -100,6 +103,8 @@ class StaffVali_1_Activity : AppCompatActivity() {
             var second_max = 0
 
             var index = -1
+            var index_2 = -1
+            var index_3 = -1
 
             //레이블 출력
             for(i in 0..19){
@@ -116,11 +121,12 @@ class StaffVali_1_Activity : AppCompatActivity() {
                 } else if(answer[i] > second_max && answer[i] != max){
                     third_max = second_max
                     second_max = answer[i]
+                    index_2 = i
 
 
                 } else if (answer[i] > third_max && answer[i] != max){
                     third_max = answer[i]
-
+                    index_3 = i
                 }
             }
             // 그래프 변환을 위한 소수점 변환
@@ -141,9 +147,9 @@ class StaffVali_1_Activity : AppCompatActivity() {
             }
             // 그래프 데이터 임의로 넣기
             val entryList = mutableListOf<PieEntry>()
-            entryList.add(PieEntry(f_max, "1순위"))
-            entryList.add(PieEntry(s_max, "2순위"))
-            entryList.add(PieEntry(t_max, "3순위"))
+            entryList.add(PieEntry(f_max, name[index]))
+            entryList.add(PieEntry(s_max, name[index_2]))
+            entryList.add(PieEntry(t_max, name[index_3]))
             val colorsItems = ArrayList<Int>()
 
             colorsItems.add(resources.getColor(R.color.mainPurple))
@@ -152,7 +158,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
 
 
             // 파이 그래프에 들어갈 데이터 set 생성
-            val pieDataSet = PieDataSet(entryList, "* 의료진 일치도가 높은 순서대로 정렬됩니다.")
+            val pieDataSet = PieDataSet(entryList, " ")
             // pie 커스터마이징
             pieDataSet.apply {
 
