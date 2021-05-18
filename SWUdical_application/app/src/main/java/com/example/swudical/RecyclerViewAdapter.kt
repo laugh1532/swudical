@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swudical.DTO.MedicalConfirmDTO
 import kotlinx.android.synthetic.main.item_list.view.*
@@ -47,7 +48,7 @@ class RecyclerViewAdapter(private val items: ArrayList<MedicalConfirmDTO>, priva
 
             //의료진확인
             if (layout_id == R.layout.activity_staff_vali){
-                btn_check.text = "의료진 확인"
+                btn_check.isInvisible
                 btn_check.setOnClickListener{
                     val intent = Intent(it.context, StaffVali_1_Activity::class.java)
                     intent.putExtra("voice_path", item.voice_path)
