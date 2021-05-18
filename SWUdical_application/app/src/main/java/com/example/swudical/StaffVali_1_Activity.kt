@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.example.swudical.DTO.UserInfoDTO
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.data.PieData
@@ -67,6 +68,8 @@ class StaffVali_1_Activity : AppCompatActivity() {
             }
 
 
+
+        animationView.playAnimation()
         val voice_path = intent.getStringExtra("voice_path")
         val doctor_id = intent.getStringExtra("doctor_id")
 
@@ -129,20 +132,27 @@ class StaffVali_1_Activity : AppCompatActivity() {
 
             if(doctor_id == index.toString()){
                 testresult.text = "일치"
+                animationView.isVisible = false
+                animationView.pauseAnimation()
             }else{
                 testresult.text="불일치"
+                animationView.isVisible = false
+                animationView.pauseAnimation()
             }
             // 그래프 데이터 임의로 넣기
             val entryList = mutableListOf<PieEntry>()
-            entryList.add(PieEntry(f_max, "A"))
-            entryList.add(PieEntry(s_max, "B"))
-            entryList.add(PieEntry(t_max, "C"))
+            entryList.add(PieEntry(f_max, "1순위"))
+            entryList.add(PieEntry(s_max, "2순위"))
+            entryList.add(PieEntry(t_max, "3순위"))
             val colorsItems = ArrayList<Int>()
-            for (c in ColorTemplate.VORDIPLOM_COLORS) colorsItems.add(c)
-            for (c in ColorTemplate.JOYFUL_COLORS) colorsItems.add(c)
-            colorsItems.add(ColorTemplate.getHoloBlue())
+
+            colorsItems.add(resources.getColor(R.color.mainPurple))
+            colorsItems.add(resources.getColor(R.color.subPurple2))
+            colorsItems.add(resources.getColor(R.color.subPurple1))
+
+
             // 파이 그래프에 들어갈 데이터 set 생성
-            val pieDataSet = PieDataSet(entryList, "MyPieChart")
+            val pieDataSet = PieDataSet(entryList, "* 의료진 일치도가 높은 순서대로 정렬됩니다.")
             // pie 커스터마이징
             pieDataSet.apply {
 
@@ -150,7 +160,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
                 selectionShift = 5f
                 colors = colorsItems
                 yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
-                valueTextSize = 11f
+                valueTextSize = 10f
 
             }
             // 어떻게 데이터 보여줄지 구성하
@@ -160,6 +170,7 @@ class StaffVali_1_Activity : AppCompatActivity() {
                 description.isEnabled = false
                 isRotationEnabled = false
                 setEntryLabelColor(Color.BLACK)
+
                 animateY(1400, Easing.EaseInOutQuad)
                 animate()
             }
