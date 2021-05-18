@@ -52,6 +52,9 @@ class HomeActivity : AppCompatActivity() {
             if (task.isSuccessful()) {
                 // Glide 이용하여 이미지뷰에 로딩
                 Glide.with(this).load(task.getResult()).override(1024, 980).into(imageView3)
+
+                imageView3.background = getResources().getDrawable(R.drawable.imageview_cornerround, null)
+                imageView3.clipToOutline = true
             }
         }
         //endregion
@@ -171,7 +174,7 @@ class HomeActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     progressDialog.dismiss()
                     Toast.makeText(applicationContext, "사진 업로드 완료", Toast.LENGTH_SHORT).show()
-
+ 21
                 } //실패시
                 .addOnFailureListener {
                     progressDialog.dismiss()
