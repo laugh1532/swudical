@@ -1,6 +1,7 @@
 package com.example.swudical
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swudical.DTO.UserInfoDTO
 import com.google.firebase.auth.FirebaseAuth
@@ -70,8 +73,9 @@ class BlockchainListActivity : AppCompatActivity() {
             .addOnFailureListener() { exception ->
                 Log.w("ERR", "err getting documents: ", exception)
             }
-        Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
 
+        //하단 바
+        Common.BottomBar(btn_staffvali, btn_home, btn_rcdvali)
 
         GlobalScope.launch(Dispatchers.IO) {
             async(Dispatchers.IO){
@@ -113,8 +117,8 @@ class BlockchainListActivity : AppCompatActivity() {
                 val adapter = RecyclerViewAdapter(_blockNumList, _hashList)
                 rv_hashList.adapter = adapter
 
-//                val dividerItemDecoration = DividerItemDecoration(rv_hashList.getContext(), LinearLayoutManager(context).orientation)
-//                rv_hashList.addItemDecoration(dividerItemDecoration)
+                val dividerItemDecoration = DividerItemDecoration(rv_hashList.getContext(), LinearLayoutManager(this@BlockchainListActivity).orientation)
+                rv_hashList.addItemDecoration(dividerItemDecoration)
             }
 
         }

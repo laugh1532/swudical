@@ -28,7 +28,6 @@
             android:gravity="center"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:text="2"
             android:textAlignment="center"
             android:textColor="@color/mainPurple"
             app:layout_column="0"

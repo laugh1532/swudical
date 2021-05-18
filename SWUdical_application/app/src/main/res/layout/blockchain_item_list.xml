@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
-    android:layout_width="380dp"
-    android:layout_height="70dp"
+    android:layout_width="wrap_content"
+    android:layout_height="45dp"
     android:background="?attr/selectableItemBackground"
     android:defaultFocusHighlightEnabled="true"
     android:gravity="center"
@@ -13,8 +13,8 @@
 
     <TextView
         android:id="@+id/blockNum"
-        android:layout_width="134dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|left"
         android:includeFontPadding="false"
@@ -23,12 +23,13 @@
         android:textAlignment="gravity"
         android:textSize="14sp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="78dp" />
+        tools:layout_editor_absoluteY="78dp"
+        tools:text="0000000" />
 
     <TextView
         android:id="@+id/hashVal"
-        android:layout_width="147dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/nanumsquare_acr"
         android:gravity="center|left"
         android:includeFontPadding="false"
@@ -37,6 +38,7 @@
         android:textAlignment="gravity"
         android:textSize="14sp"
         tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="58dp" />
+        tools:layout_editor_absoluteY="58dp"
+        tools:text="0x4b86af34dffdd1366016fd674e7f337c04e5fb0617f98219d73a3319fc2d4171" />
 
 </LinearLayout>
