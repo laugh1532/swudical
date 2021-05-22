@@ -85,7 +85,7 @@ class UserInfoActivity : AppCompatActivity() {
             .set(userInfo)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, RecordsValiActivity::class.java)
+                    val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "저장하지 못했습니다.", Toast.LENGTH_SHORT).show()

@@ -209,36 +209,35 @@
         android:id="@+id/logoutbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginBottom="110dp"
         android:fontFamily="@font/nanumsquare_acb"
         android:text="로그아웃"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.736"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_mail" />
+        app:layout_constraintHorizontal_bias="0.709"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/editinfobtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginBottom="110dp"
         android:fontFamily="@font/nanumsquare_acb"
         android:text="정보 수정"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/logoutbtn"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_mail" />
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/text_home_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/nanumsquare_acr"
         android:text="이름"
         android:textAlignment="viewStart"
@@ -277,7 +276,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home_sex" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

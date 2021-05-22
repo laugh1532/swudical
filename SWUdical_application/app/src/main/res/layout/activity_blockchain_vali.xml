@@ -6,15 +6,14 @@
     tools:context=".BlockchainValiActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369">
+        app:layout_constraintTop_toBottomOf="@+id/txt_contents">
 
         <TextView
             android:id="@+id/textView4"
@@ -22,14 +21,17 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumsquare_acb"
             android:text="블록번호  "
-            android:textColor="#000000"
+            android:textColor="@color/mainPurple"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txt_blockNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="start"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:textColor="@color/mainBlack"
+            android:textSize="18dp"
             tools:text="블록번호 값" />
     </LinearLayout>
 
@@ -37,13 +39,11 @@
         android:id="@+id/linearLayout3"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
             android:id="@+id/textView7"
@@ -51,27 +51,29 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumsquare_acb"
             android:text="진료기록 인증번호"
-            android:textColor="#000000"
+            android:textColor="@color/mainPurple"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txt_dbhash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:textColor="@color/mainBlack"
+            android:textSize="18dp"
             tools:text="진료기록 해시 값" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
             android:id="@+id/textView8"
@@ -79,13 +81,16 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumsquare_acb"
             android:text="블록체인 인증번호"
-            android:textColor="#000000"
+            android:textColor="@color/mainPurple"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txt_resHash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquare_acr"
+            android:textColor="@color/mainBlack"
+            android:textSize="18dp"
             tools:text="블록체인 해시 값" />
 
     </LinearLayout>
@@ -162,12 +167,10 @@
         android:includeFontPadding="false"
         android:text="선택하신 진료 확인서의 위변조 여부를 확인합니다. \n진료기록 인증번호와 블록체인 인증번호가 일치하면 \n진료기록이 위변조 되지 않은 것을 의미합니다."
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_subtitle"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_subtitle" />
 
     <TextView
         android:id="@+id/txt_subtitle"
@@ -185,13 +188,13 @@
 
     <TextView
         android:id="@+id/txt_title"
-        android:autoSizeTextType="uniform"
-        android:singleLine="false"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/nanumsquare_aceb"
         android:includeFontPadding="false"
+        android:singleLine="false"
         android:textColor="@color/mainPurple"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -201,19 +204,16 @@
 
     <TextView
         android:id="@+id/txt_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="42dp"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
-        android:textColor="#578BC5"
+        android:textColor="@color/mainPurple"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Detail"
         tools:gravity="center"
         tools:text="일치" />
 
@@ -221,17 +221,16 @@
         android:id="@+id/btn_Detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#3F51B5"
+        android:layout_marginTop="40dp"
+        android:background="@color/mainPurple"
         android:fontFamily="@font/nanumsquare_aceb"
         android:text="상세보기"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.302" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

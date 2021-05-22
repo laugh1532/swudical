@@ -111,12 +111,15 @@
 
     <TextView
         android:id="@+id/testresult"
-        android:autoSizeTextType="uniform"
-        android:singleLine="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="42dp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nanumsquare_acb"
+        android:singleLine="false"
+        android:textColor="@color/mainPurple"
         android:text="일치/불일치 결과 분석중입니다."
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
